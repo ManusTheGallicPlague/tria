@@ -175,6 +175,7 @@ h2 em { color: var(--orange); font-weight: 500; }
 .project-info { padding: 30px 40px 32px 0; display: flex; flex-direction: column; border-top: 1px solid rgba(241,238,230,.3); }
 .project-info > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 0; font: 400 9px var(--mono); text-transform: uppercase; opacity: .65; }
 .project-info h3 { margin: auto 0 10px; font-size: clamp(54px, 6.3vw, 96px); font-weight: 500; letter-spacing: -.075em; }
+.project-playground .project-info h3 { font-size: clamp(42px,4vw,62px); overflow-wrap: anywhere; }
 .project-info p { margin: 0 0 35px; max-width: 350px; font-size: 17px; line-height: 1.5; opacity: .75; }
 .project-info a { align-self: flex-start; }
 .project-visual { position: relative; overflow: hidden; min-height: 600px; }
@@ -232,6 +233,42 @@ h2 em { color: var(--orange); font-weight: 500; }
 .flow-stat b { font-size: 27px; letter-spacing: -.05em; }
 .flow-stat span { font: 400 8px var(--mono); text-transform: uppercase; }
 .demo-note { max-width: 620px; margin: 65px 0 0 35%; font: 300 10px/1.6 var(--mono); opacity: .45; }
+
+.project-playground .project-visual { display: grid; place-items: center; background: #09090d; color: #f7f4ec; isolation: isolate; }
+.project-playground .project-visual::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.045) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom,black,transparent 92%); }
+.project-playground .project-visual::after { content: ""; position: absolute; width: 70%; height: 70%; z-index: -1; border-radius: 50%; background: radial-gradient(circle,rgba(127,216,138,.19),rgba(183,140,255,.12) 45%,transparent 72%); filter: blur(12px); }
+.playground-orbit { position: absolute; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; }
+.playground-orbit::before { content: ""; position: absolute; width: 9px; height: 9px; top: 50%; left: -5px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 22px var(--lime); }
+.playground-orbit-one { width: 580px; height: 580px; transform: rotate(22deg); }
+.playground-orbit-two { width: 760px; height: 340px; transform: rotate(-18deg); }
+.playground-orbit-two::before { left: auto; right: -5px; background: #ff2fb9; box-shadow: 0 0 22px #ff2fb9; }
+.playground-window { width: min(580px,82%); overflow: hidden; border: 1px solid rgba(255,255,255,.28); border-radius: 12px; background: rgba(13,13,19,.92); box-shadow: 0 35px 90px rgba(0,0,0,.55); transform: rotate(-2.5deg); transition: transform .8s cubic-bezier(.22,1,.36,1); backdrop-filter: blur(12px); }
+.project:hover .playground-window { transform: rotate(0deg) translateY(-8px); }
+.playground-bar { height: 42px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 14px; border-bottom: 1px solid rgba(255,255,255,.12); font: 400 8px var(--mono); color: rgba(255,255,255,.62); }
+.playground-bar > span { display: flex; gap: 6px; }
+.playground-bar i { display: block; width: 7px; height: 7px; border-radius: 50%; background: #ff6b6b; }
+.playground-bar i:nth-child(2) { background: #ffd166; }
+.playground-bar i:nth-child(3) { background: #7fd88a; }
+.playground-bar b { font-weight: 400; }
+.playground-bar em { justify-self: end; font-style: normal; }
+.playground-screen { padding: 38px 34px 34px; }
+.playground-brand { display: flex; align-items: baseline; font-size: clamp(32px,4.5vw,62px); font-weight: 700; letter-spacing: -.075em; }
+.playground-brand strong { color: #ff2fb9; font-weight: 700; }
+.playground-screen > p { margin: 5px 0 28px; font: 400 8px var(--mono); letter-spacing: .12em; color: rgba(255,255,255,.48); }
+.playground-games { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.playground-game { min-height: 92px; display: flex; flex-direction: column; justify-content: space-between; padding: 13px; border: 1px solid rgba(255,255,255,.1); border-radius: 7px; background: rgba(255,255,255,.035); font-size: 25px; transition: transform .35s,background .35s; }
+.project:hover .playground-game:nth-child(2n) { transform: translateY(-3px); }
+.project:hover .playground-game:nth-child(2n+1) { transform: translateY(3px); }
+.playground-game small { font: 500 7px var(--mono); letter-spacing: .08em; }
+.game-green { box-shadow: inset 0 -3px #7fd88a; }
+.game-cyan { box-shadow: inset 0 -3px #5ce8ff; }
+.game-violet { box-shadow: inset 0 -3px #b78cff; }
+.game-red { box-shadow: inset 0 -3px #ff6b6b; }
+.game-yellow { box-shadow: inset 0 -3px #ffd166; }
+.game-pink { box-shadow: inset 0 -3px #ff2fb9; }
+.playground-badge { position: absolute; right: 3%; bottom: 5%; display: flex; flex-direction: column; padding: 14px 20px; border-radius: 7px; background: var(--lime); color: var(--ink); transform: rotate(5deg); box-shadow: 0 12px 25px rgba(0,0,0,.32); }
+.playground-badge b { font-size: 30px; line-height: .9; letter-spacing: -.06em; }
+.playground-badge span { margin-top: 5px; font: 500 8px var(--mono); text-transform: uppercase; }
 
 .studio-intro { display: grid; grid-template-columns: 2fr .8fr; gap: 7vw; padding: 74px 0 100px; }
 .studio-intro p { margin: 12px 0 0; font-size: clamp(17px, 1.6vw, 24px); line-height: 1.5; letter-spacing: -.03em; }
@@ -384,6 +421,7 @@ footer { padding: 70px var(--pad) 32px; background: var(--ink); color: var(--pap
   .project-info { min-height: 280px; }
   .project-info > div { flex-direction: column; }
   .project-info h3 { font-size: 58px; }
+  .project-playground .project-info h3 { font-size: 45px; }
   .project-visual { min-height: 440px; }
   .phone { width: 245px; height: 430px; border-radius: 32px; padding: 17px; }
   .phone-top { margin-bottom: 48px; }
@@ -402,6 +440,13 @@ footer { padding: 70px var(--pad) 32px; background: var(--ink); color: var(--pap
   .node-a { left: 2%; }
   .node-b, .node-c { right: 2%; }
   .flow-stat { bottom: 3%; }
+  .playground-window { width: 88%; }
+  .playground-screen { padding: 28px 20px 22px; }
+  .playground-games { gap: 6px; }
+  .playground-game { min-height: 72px; padding: 9px; font-size: 20px; }
+  .playground-orbit-one { width: 420px; height: 420px; }
+  .playground-orbit-two { width: 530px; height: 250px; }
+  .playground-badge { right: 1%; bottom: 3%; }
   .studio-intro { padding-top: 50px; padding-bottom: 65px; }
   .studio-intro p { font-size: 17px; }
   .team-grid { grid-template-columns: 1fr; gap: 35px; }
