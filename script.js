@@ -11,7 +11,7 @@ const progress = document.querySelector("[data-scroll-progress]");
 const loader = document.querySelector("[data-loader]");
 const loaderCount = document.querySelector("[data-loader-count]");
 const loaderBar = document.querySelector("[data-loader-bar]");
-const loaderDuration = reduceMotion ? 120 : 1050;
+const loaderDuration = reduceMotion ? 120 : 650;
 const loaderStart = performance.now();
 
 const runLoader = (now) => {
