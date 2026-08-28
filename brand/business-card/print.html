@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TRIA — Biglietto da visita per stampa</title>
+    <style>
+      @page { size:91mm 61mm; margin:0; }
+      * { box-sizing:border-box; }
+      html,body { margin:0; padding:0; }
+      .page { width:91mm; height:61mm; page-break-after:always; overflow:hidden; }
+      .page:last-child { page-break-after:auto; }
+      img { display:block; width:91mm; height:61mm; }
+    </style>
+  </head>
+  <body>
+    <div class="page"><img src="tria-business-card-front.svg" alt="Fronte" /></div>
+    <div class="page"><img src="tria-business-card-back.svg" alt="Retro" /></div>
+  </body>
+</html>

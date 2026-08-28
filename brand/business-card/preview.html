@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRIA — Business card preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#171716; --paper:#f1eee6; --orange:#ff4b24; --lime:#d7ef3f; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-height:100vh; overflow:hidden; background:#11110f; color:var(--paper); font-family:Manrope,sans-serif; }
+      body::before { content:""; position:fixed; inset:0; opacity:.13; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:80px 80px; }
+      body::after { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 20% 20%,rgba(255,75,36,.18),transparent 30%),radial-gradient(circle at 82% 70%,rgba(36,73,216,.18),transparent 32%); }
+      main { position:relative; z-index:1; width:min(1500px,92vw); margin:0 auto; padding:70px 0; }
+      header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:50px; }
+      .eyebrow,.label,.meta { font:400 12px 'DM Mono',monospace; letter-spacing:.12em; text-transform:uppercase; }
+      h1 { margin:8px 0 0; max-width:850px; font-size:clamp(38px,5vw,76px); line-height:.96; letter-spacing:-.06em; font-weight:500; }
+      h1 em { color:var(--orange); font-weight:500; }
+      .meta { text-align:right; line-height:1.8; color:rgba(241,238,230,.6); }
+      .cards { display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:start; }
+      figure { margin:0; }
+      .card { position:relative; width:100%; aspect-ratio:91/61; overflow:hidden; box-shadow:0 32px 70px rgba(0,0,0,.46),0 0 0 1px rgba(255,255,255,.1); transform:rotate(-1.2deg); }
+      figure:nth-child(2) .card { transform:translateY(55px) rotate(1.1deg); }
+      .card img { display:block; width:100%; height:100%; object-fit:cover; }
+      figcaption { display:flex; justify-content:space-between; margin-top:19px; color:rgba(241,238,230,.72); font:400 11px 'DM Mono',monospace; letter-spacing:.1em; text-transform:uppercase; }
+      .trim-note { position:fixed; left:28px; bottom:24px; z-index:2; writing-mode:vertical-rl; transform:rotate(180deg); color:rgba(241,238,230,.32); font:400 10px 'DM Mono',monospace; letter-spacing:.12em; }
+      @media (max-width:900px) { body { overflow:auto; } main { padding:35px 0 80px; } header { align-items:start; gap:25px; } .cards { grid-template-columns:1fr; } figure:nth-child(2) .card { transform:rotate(1.1deg); } .meta { display:none; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">TRIA® / Identity application 01</div>
+          <h1>Un biglietto che parla la stessa lingua del <em>sito.</em></h1>
+        </div>
+        <div class="meta">85 × 55 MM<br />3 MM BLEED<br />PRINT FILE*</div>
+      </header>
+      <section class="cards" aria-label="Anteprima fronte e retro del biglietto da visita">
+        <figure>
+          <div class="card"><img src="tria-business-card-front.svg" alt="Fronte biglietto da visita TRIA" /></div>
+          <figcaption><span>01 — Fronte</span><span>Tre menti / un sistema</span></figcaption>
+        </figure>
+        <figure>
+          <div class="card"><img src="tria-business-card-back.svg" alt="Retro biglietto da visita TRIA" /></div>
+          <figcaption><span>02 — Retro</span><span>Contatti / competenze</span></figcaption>
+        </figure>
+      </section>
+    </main>
+    <div class="trim-note">* CONVERSIONE CMYK DA COMPLETARE IN TIPOGRAFIA</div>
+  </body>
+</html>

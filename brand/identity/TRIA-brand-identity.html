@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRIA — Brand Identity Guidelines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink:#171716;
+        --paper:#f1eee6;
+        --orange:#ff4b24;
+        --cobalt:#2449d8;
+        --lime:#d7ef3f;
+        --green:#50bd63;
+        --line:rgba(23,23,22,.25);
+        --mono:'DM Mono','Courier New',monospace;
+        --sans:'Manrope',Arial,sans-serif;
+      }
+      * { box-sizing:border-box; }
+      html,body { margin:0; background:#cbc8c0; color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+      .page { position:relative; width:297mm; height:210mm; margin:12mm auto; overflow:hidden; padding:17mm 18mm 15mm; background:var(--paper); page-break-after:always; box-shadow:0 10px 42px rgba(0,0,0,.2); }
+      .page:last-child { page-break-after:auto; }
+      .page::before { content:""; position:absolute; inset:0; opacity:.032; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitchTiles'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+      .page > * { position:relative; z-index:1; }
+      .dark { background:var(--ink); color:var(--paper); }
+      .orange { background:var(--orange); color:var(--ink); }
+      .cobalt { background:var(--cobalt); color:var(--paper); }
+      .lime { background:var(--lime); color:var(--ink); }
+      .page-head { display:flex; align-items:center; justify-content:space-between; height:10mm; padding-bottom:5mm; border-bottom:1px solid currentColor; }
+      .page-head .mini-brand { display:flex; align-items:center; gap:3mm; font-size:18px; font-weight:700; letter-spacing:-.07em; }
+      .page-head .mini-brand svg { width:7mm; height:7mm; }
+      .page-head .mini-brand sup { align-self:flex-start; margin:0 0 0 -2mm; font:400 6px var(--mono); letter-spacing:0; }
+      .page-head .chapter,.mono { font-family:var(--mono); text-transform:uppercase; letter-spacing:.1em; }
+      .page-head .chapter { font-size:8px; }
+      .page-number { position:absolute; right:18mm; bottom:8mm; font:400 8px var(--mono); letter-spacing:.1em; }
+      .edition { position:absolute; left:18mm; bottom:8mm; font:400 7px var(--mono); text-transform:uppercase; letter-spacing:.12em; opacity:.68; }
+      .kicker { margin-top:8mm; font:400 8px var(--mono); text-transform:uppercase; letter-spacing:.12em; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { margin-bottom:0; font-size:70px; line-height:.91; font-weight:500; letter-spacing:-.065em; }
+      h2 { margin-bottom:8mm; font-size:45px; line-height:.98; font-weight:500; letter-spacing:-.055em; }
+      h3 { margin-bottom:3mm; font-size:21px; line-height:1.05; font-weight:600; letter-spacing:-.04em; }
+      em { color:var(--orange); font-weight:500; }
+      .dark em { color:var(--orange); }
+      .orange em { color:var(--paper); }
+      .lead { font-size:18px; line-height:1.45; letter-spacing:-.025em; }
+      .body { font-size:11px; line-height:1.55; }
+      .small { font-size:8px; line-height:1.55; }
+      .rule { height:1px; background:currentColor; opacity:.28; }
+      .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12mm; }
+      .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:6mm; }
+      .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; }
+      .index { font:400 8px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+      .pill { display:inline-flex; align-items:center; border:1px solid currentColor; border-radius:99px; padding:2.2mm 4mm; font:400 7px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+      .status { display:inline-flex; align-items:center; gap:2.5mm; font:400 7px var(--mono); text-transform:uppercase; letter-spacing:.09em; }
+      .status::before { content:""; width:2.5mm; height:2.5mm; border-radius:50%; background:var(--green); box-shadow:0 0 0 1.5mm rgba(80,189,99,.16); }
+      .mark-on-paper circle { fill:var(--paper); }
+      .mark-on-ink circle { fill:var(--ink); }
+      .mark-on-orange circle { fill:var(--orange); }
+      .mark-on-cobalt circle { fill:var(--cobalt); }
+      .mark-on-lime circle { fill:var(--lime); }
+
+      /* Cover */
+      .cover { display:flex; flex-direction:column; justify-content:space-between; padding-top:14mm; }
+      .cover-top { display:flex; align-items:flex-start; justify-content:space-between; }
+      .cover-brand { display:flex; align-items:center; gap:5mm; font-size:34px; font-weight:700; letter-spacing:-.07em; }
+      .cover-brand svg { width:13mm; height:13mm; }
+      .cover-brand sup { align-self:flex-start; margin:1mm 0 0 -4mm; font:400 7px var(--mono); letter-spacing:0; }
+      .cover-meta { text-align:right; font:400 8px/1.8 var(--mono); text-transform:uppercase; letter-spacing:.1em; }
+      .cover-title { position:relative; margin-top:5mm; }
+      .cover-title h1 { font-size:112px; line-height:.77; letter-spacing:-.085em; }
+      .cover-title h1 span { display:block; }
+      .cover-title h1 em { margin-left:49mm; }
+      .cover-orbit { position:absolute; right:13mm; top:1mm; width:41mm; height:23mm; transform:rotate(-7deg); border:1px solid currentColor; border-radius:50%; opacity:.4; }
+      .cover-orbit::after { content:""; position:absolute; right:0; bottom:2mm; width:7mm; height:7mm; border:1px solid currentColor; border-radius:50%; background:var(--paper); }
+      .cover-bottom { display:flex; align-items:flex-end; justify-content:space-between; padding-top:6mm; border-top:1px solid currentColor; }
+      .cover-bottom p { margin:0; max-width:93mm; font-size:14px; line-height:1.45; letter-spacing:-.02em; }
+
+      /* Foundation */
+      .essence-layout { display:grid; grid-template-columns:1.12fr .88fr; gap:12mm; margin-top:10mm; }
+      .essence-statement { display:flex; flex-direction:column; justify-content:space-between; min-height:132mm; }
+      .essence-statement h2 { font-size:59px; }
+      .essence-statement .foot { display:flex; align-items:center; gap:4mm; font:400 8px var(--mono); text-transform:uppercase; }
+      .principles { display:grid; gap:3mm; }
+      .principle { min-height:39mm; padding:6mm; border:1px solid currentColor; display:grid; grid-template-columns:10mm 1fr; gap:3mm; }
+      .principle:nth-child(2) { background:var(--ink); color:var(--paper); }
+      .principle:nth-child(3) { background:var(--cobalt); color:var(--paper); border-color:var(--cobalt); }
+      .principle .num { font:400 8px var(--mono); }
+      .principle h3 { font-size:18px; }
+      .principle p { margin:0; font-size:9px; line-height:1.45; }
+
+      /* Positioning */
+      .position-title { max-width:178mm; margin-top:8mm; }
+      .position-title h2 { font-size:50px; }
+      .position-grid { margin-top:8mm; display:grid; grid-template-columns:1.25fr 1fr 1fr; border-top:1px solid currentColor; border-left:1px solid currentColor; }
+      .position-cell { min-height:76mm; padding:6mm; border-right:1px solid currentColor; border-bottom:1px solid currentColor; }
+      .position-cell strong { display:block; margin:9mm 0 4mm; font-size:20px; line-height:1.1; letter-spacing:-.04em; }
+      .position-cell p,.position-cell li { font-size:9px; line-height:1.5; }
+      .position-cell ul { margin:0; padding-left:4mm; }
+      .axis { display:flex; justify-content:space-between; align-items:center; margin:5mm 0; gap:4mm; font:400 7px var(--mono); text-transform:uppercase; }
+      .axis i { flex:1; height:1px; background:currentColor; position:relative; opacity:.45; }
+      .axis i::after { content:""; position:absolute; left:70%; top:50%; width:3mm; height:3mm; border-radius:50%; transform:translate(-50%,-50%); background:var(--orange); }
+
+      /* Logo */
+      .logo-stage { margin-top:8mm; height:92mm; display:flex; align-items:center; justify-content:center; background:var(--paper); color:var(--ink); border:1px solid rgba(241,238,230,.18); }
+      .logo-lockup { display:flex; align-items:center; gap:8mm; font-size:98px; font-weight:700; letter-spacing:-.075em; }
+      .logo-lockup svg { width:37mm; height:37mm; }
+      .logo-lockup sup { align-self:flex-start; margin:5mm 0 0 -8mm; font:400 10px var(--mono); letter-spacing:0; }
+      .logo-notes { display:grid; grid-template-columns:1fr 1fr 1fr; gap:7mm; margin-top:7mm; }
+      .logo-notes p { margin:2mm 0 0; font-size:8px; line-height:1.45; }
+
+      /* Logo rules */
+      .logo-rule-grid { display:grid; grid-template-columns:1.12fr .88fr; gap:8mm; margin-top:8mm; }
+      .clearspace { position:relative; height:71mm; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:12mm 12mm; }
+      .clearspace .safe { position:relative; padding:12mm; border:1px dashed var(--orange); }
+      .clearspace .lock { display:flex; align-items:center; gap:4mm; font-size:36px; font-weight:700; letter-spacing:-.07em; }
+      .clearspace .lock svg { width:14mm; }
+      .clearspace .x { position:absolute; top:2mm; left:2mm; color:var(--orange); font:500 8px var(--mono); }
+      .variants { display:grid; grid-template-columns:1fr 1fr; gap:3mm; }
+      .variant { height:34mm; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); }
+      .variant.dark-v { background:var(--ink); color:var(--paper); }
+      .variant.orange-v { background:var(--orange); }
+      .variant.cobalt-v { background:var(--cobalt); color:var(--paper); }
+      .variant .lock { display:flex; align-items:center; gap:3mm; font-size:23px; font-weight:700; letter-spacing:-.07em; }
+      .variant svg { width:9mm; }
+      .misuses { display:grid; grid-template-columns:repeat(4,1fr); gap:3mm; margin-top:6mm; }
+      .misuse { position:relative; min-height:31mm; padding:4mm; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; text-align:center; }
+      .misuse::after { content:"×"; position:absolute; right:2mm; top:0; color:var(--orange); font-size:26px; font-weight:500; }
+      .misuse span { font:400 7px/1.4 var(--mono); text-transform:uppercase; }
+      .misuse.stretch span { transform:scaleX(1.55); }
+      .misuse.shadow span { text-shadow:3px 3px 0 var(--orange); }
+      .misuse.rotate span { transform:rotate(-13deg); }
+
+      /* Colors */
+      .swatches { display:grid; grid-template-columns:1.35fr 1fr 1fr 1fr 1fr; height:100mm; margin-top:9mm; }
+      .swatch { padding:6mm; display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(23,23,22,.15); }
+      .swatch h3 { font-size:17px; }
+      .swatch p { margin:0; font:400 7px/1.65 var(--mono); text-transform:uppercase; }
+      .swatch.ink-s { background:var(--ink); color:var(--paper); }
+      .swatch.paper-s { background:var(--paper); border:1px solid var(--line); }
+      .swatch.orange-s { background:var(--orange); }
+      .swatch.cobalt-s { background:var(--cobalt); color:var(--paper); }
+      .swatch.lime-s { background:var(--lime); }
+      .color-guidance { display:grid; grid-template-columns:1.35fr 1fr; gap:12mm; margin-top:7mm; }
+      .ratio { display:flex; height:7mm; }
+      .ratio i:nth-child(1) { width:55%; background:var(--paper); border:1px solid var(--line); }
+      .ratio i:nth-child(2) { width:28%; background:var(--ink); }
+      .ratio i:nth-child(3) { width:10%; background:var(--orange); }
+      .ratio i:nth-child(4) { width:5%; background:var(--cobalt); }
+      .ratio i:nth-child(5) { width:2%; background:var(--lime); }
+
+      /* Type */
+      .type-showcase { margin-top:7mm; display:grid; grid-template-columns:1.65fr .75fr; gap:9mm; }
+      .font-card { min-height:117mm; padding:7mm; border:1px solid currentColor; }
+      .font-card .alphabet { margin:4mm 0 3mm; font-size:59px; line-height:.95; letter-spacing:-.07em; }
+      .font-card .numbers { font:400 23px var(--mono); letter-spacing:.04em; }
+      .font-card code { display:block; margin-top:6mm; font:400 7px/1.7 var(--mono); white-space:normal; }
+      .mono-card { display:flex; flex-direction:column; justify-content:space-between; background:var(--ink); color:var(--paper); }
+      .mono-card .alphabet { font:400 27px/1.35 var(--mono); letter-spacing:.03em; }
+      .type-rules { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; margin-top:6mm; }
+      .type-rule { padding-top:3mm; border-top:1px solid currentColor; }
+      .type-rule p { margin:2mm 0 0; font-size:8px; line-height:1.45; }
+
+      /* Layout */
+      .layout-demo { position:relative; margin-top:7mm; height:107mm; border:1px solid var(--line); display:grid; grid-template-columns:repeat(12,1fr); gap:3mm; padding:7mm; overflow:hidden; }
+      .layout-demo::before { content:""; position:absolute; inset:7mm; background:repeating-linear-gradient(90deg,rgba(36,73,216,.08) 0,rgba(36,73,216,.08) calc((100% - 33mm)/12),transparent calc((100% - 33mm)/12),transparent calc((100% - 33mm)/12 + 3mm)); pointer-events:none; }
+      .layout-copy { grid-column:1/9; align-self:center; z-index:1; }
+      .layout-copy h3 { font-size:58px; line-height:.9; font-weight:500; }
+      .layout-copy h3 em { display:block; margin-left:30mm; }
+      .layout-side { grid-column:10/13; z-index:1; border-left:1px solid currentColor; padding-left:5mm; display:flex; flex-direction:column; justify-content:space-between; }
+      .spacing-scale { display:flex; gap:3mm; align-items:flex-end; height:22mm; }
+      .spacing-scale span { display:block; background:var(--orange); }
+      .spacing-scale span:nth-child(1) { width:2mm; height:2mm; }
+      .spacing-scale span:nth-child(2) { width:4mm; height:4mm; }
+      .spacing-scale span:nth-child(3) { width:6mm; height:6mm; }
+      .spacing-scale span:nth-child(4) { width:10mm; height:10mm; }
+      .spacing-scale span:nth-child(5) { width:16mm; height:16mm; }
+
+      /* Graphics */
+      .graphic-grid { display:grid; grid-template-columns:1.25fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:4mm; height:120mm; margin-top:8mm; }
+      .graphic-tile { position:relative; overflow:hidden; padding:5mm; border:1px solid currentColor; }
+      .graphic-tile.big { grid-row:1/3; background:var(--ink); color:var(--paper); }
+      .graphic-tile.cobalt-t { background:var(--cobalt); color:var(--paper); border-color:var(--cobalt); }
+      .graphic-tile.lime-t { background:var(--lime); color:var(--ink); border-color:var(--lime); }
+      .big-number { position:absolute; right:-3mm; bottom:-16mm; font:400 128px/.8 var(--mono); letter-spacing:-.12em; color:var(--orange); }
+      .orbit-demo { position:absolute; inset:22mm 8mm 8mm; border:1px solid currentColor; border-radius:50%; transform:rotate(-19deg); }
+      .orbit-demo::before,.orbit-demo::after { content:""; position:absolute; width:9mm; height:9mm; border-radius:50%; border:1px solid currentColor; background:var(--ink); }
+      .orbit-demo::before { left:-3mm; top:16mm; }
+      .orbit-demo::after { right:3mm; bottom:-2mm; background:var(--orange); border-color:var(--orange); }
+      .arrow-svg { position:absolute; left:8mm; right:8mm; bottom:7mm; width:calc(100% - 16mm); height:33mm; }
+      .chips { display:flex; flex-wrap:wrap; gap:3mm; margin-top:12mm; }
+      .line-icons { display:flex; align-items:center; justify-content:space-around; height:38mm; }
+      .line-icons svg { width:24mm; height:24mm; fill:none; stroke:currentColor; stroke-width:1.6; }
+
+      /* Imagery */
+      .team-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; margin-top:8mm; }
+      .member { display:grid; grid-template-columns:35mm 1fr; min-height:70mm; border:1px solid currentColor; overflow:hidden; }
+      .member .photo { position:relative; overflow:hidden; background:var(--orange); }
+      .member:nth-child(2) .photo { background:var(--lime); }
+      .member:nth-child(3) .photo { background:var(--cobalt); }
+      .member img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; image-rendering:pixelated; }
+      .member-copy { padding:5mm; display:flex; flex-direction:column; justify-content:space-between; }
+      .member-copy h3 { font-size:28px; }
+      .member-copy sup { font:400 7px var(--mono); }
+      .member-copy p { margin:0; font-size:8px; line-height:1.45; }
+      .photo-rules { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6mm; margin-top:7mm; }
+      .photo-rule { padding-top:4mm; border-top:1px solid currentColor; }
+      .photo-rule p { margin:2mm 0 0; font-size:8px; line-height:1.45; }
+
+      /* Voice */
+      .voice-grid { display:grid; grid-template-columns:1fr 1fr; gap:7mm; margin-top:8mm; }
+      .voice-card { min-height:111mm; padding:7mm; border:1px solid currentColor; }
+      .voice-card.do { background:var(--lime); color:var(--ink); border-color:var(--lime); }
+      .voice-card.dont { background:var(--ink); color:var(--paper); }
+      .voice-card blockquote { margin:9mm 0 7mm; font-size:27px; line-height:1.05; letter-spacing:-.045em; }
+      .voice-card ul { margin:0; padding-left:5mm; font-size:9px; line-height:1.7; }
+      .voice-card .rewrite { margin-top:8mm; padding-top:5mm; border-top:1px solid currentColor; font:400 7px/1.6 var(--mono); }
+
+      /* Messaging */
+      .message-stack { display:grid; grid-template-columns:1.2fr .8fr; gap:8mm; margin-top:8mm; }
+      .message-main { min-height:114mm; padding:8mm; background:var(--orange); }
+      .message-main h3 { margin-top:7mm; font-size:50px; line-height:.95; font-weight:500; }
+      .message-side { display:grid; gap:4mm; }
+      .message-item { padding:5mm; border:1px solid currentColor; }
+      .message-item p { margin:3mm 0 0; font-size:10px; line-height:1.4; }
+      .message-item strong { font-size:16px; }
+
+      /* Digital */
+      .digital-shell { margin-top:8mm; height:119mm; border:1px solid rgba(241,238,230,.2); display:grid; grid-template-columns:1.35fr .65fr; background:var(--paper); color:var(--ink); overflow:hidden; }
+      .digital-main { padding:7mm; display:flex; flex-direction:column; justify-content:space-between; }
+      .digital-nav { display:flex; justify-content:space-between; font:400 6px var(--mono); text-transform:uppercase; }
+      .digital-lock { display:flex; align-items:center; gap:2mm; font-size:14px; font-weight:700; letter-spacing:-.07em; }
+      .digital-lock svg { width:6mm; }
+      .digital-hero { font-size:43px; line-height:.85; letter-spacing:-.07em; font-weight:500; }
+      .digital-hero em { display:block; margin-left:37mm; }
+      .digital-side { padding:7mm; background:var(--cobalt); color:var(--paper); display:flex; flex-direction:column; justify-content:space-between; }
+      .component { padding:4mm; border:1px solid currentColor; font:400 7px var(--mono); text-transform:uppercase; }
+      .component.primary { background:var(--orange); color:var(--ink); border-color:var(--orange); display:flex; justify-content:space-between; }
+      .a11y { display:grid; grid-template-columns:repeat(4,1fr); gap:3mm; margin-top:5mm; }
+      .a11y span { padding:2.5mm; border:1px solid rgba(241,238,230,.3); font:400 6px var(--mono); text-transform:uppercase; }
+
+      /* Application */
+      .application-stage { position:relative; height:126mm; margin-top:6mm; background:var(--ink); overflow:hidden; }
+      .application-stage::before { content:""; position:absolute; inset:0; opacity:.14; background-image:linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px); background-size:18mm 18mm; }
+      .business-card { position:absolute; width:126mm; aspect-ratio:91/61; box-shadow:0 13mm 25mm rgba(0,0,0,.45); }
+      .business-card.front { left:14mm; top:11mm; transform:rotate(-3deg); }
+      .business-card.back { right:11mm; bottom:8mm; transform:rotate(3deg); }
+      .business-card img { display:block; width:100%; height:100%; }
+      .application-label { position:absolute; z-index:2; color:var(--paper); font:400 7px var(--mono); text-transform:uppercase; letter-spacing:.12em; }
+      .application-label.one { left:6mm; bottom:5mm; }
+      .application-label.two { right:6mm; top:5mm; }
+
+      /* Governance */
+      .check-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:9mm; margin-top:8mm; }
+      .checklist { list-style:none; margin:0; padding:0; border-top:1px solid currentColor; }
+      .checklist li { display:grid; grid-template-columns:10mm 1fr; gap:4mm; padding:4mm 0; border-bottom:1px solid currentColor; font-size:10px; }
+      .checklist b { font:400 8px var(--mono); color:var(--orange); }
+      .brand-kit { padding:7mm; background:var(--ink); color:var(--paper); }
+      .brand-kit h3 { font-size:28px; }
+      .brand-kit dl { margin:6mm 0 0; }
+      .brand-kit dt { margin-top:4mm; color:var(--lime); font:400 7px var(--mono); text-transform:uppercase; letter-spacing:.1em; }
+      .brand-kit dd { margin:1mm 0 0; font-size:9px; line-height:1.45; }
+      .legal-note { margin-top:6mm; padding:4mm; border:1px solid var(--orange); font-size:8px; line-height:1.45; }
+
+      /* Closing */
+      .closing { display:flex; flex-direction:column; justify-content:space-between; }
+      .closing h1 { font-size:100px; }
+      .closing h1 em { display:block; margin-left:72mm; }
+      .closing-contact { display:flex; justify-content:space-between; align-items:flex-end; padding-top:7mm; border-top:1px solid currentColor; }
+      .closing-contact a { color:inherit; text-decoration:none; font-size:25px; letter-spacing:-.04em; }
+      .closing-contact p { margin:0; text-align:right; font:400 8px/1.8 var(--mono); text-transform:uppercase; }
+
+      @media print {
+        html,body { background:none; }
+        .page { margin:0; box-shadow:none; }
+        .page::before { display:none; }
+      }
+      @page { size:A4 landscape; margin:0; }
+    </style>
+  </head>
+  <body>
+    <!-- 00 / Cover -->
+    <section class="page cover">
+      <div class="cover-top">
+        <div class="cover-brand">
+          <svg class="mark-on-paper" viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg>
+          <span>TRIA</span><sup>®</sup>
+        </div>
+        <div class="cover-meta">Brand identity guidelines<br/>Versione 1.0 / Agosto 2026<br/>Uso interno + partner</div>
+      </div>
+      <div class="cover-title">
+        <div class="cover-orbit"></div>
+        <div class="kicker">00 — Il sistema TRIA</div>
+        <h1><span>Brand</span><em>identity.</em></h1>
+      </div>
+      <div class="cover-bottom">
+        <p>Le regole per rendere TRIA riconoscibile, coerente e credibile in ogni punto di contatto.</p>
+        <span class="pill">Tre menti / un sistema</span>
+      </div>
+    </section>
+
+    <!-- 01 / Foundation -->
+    <section class="page">
+      <header class="page-head">
+        <div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div>
+        <div class="chapter">01 — Fondamenta</div>
+      </header>
+      <div class="essence-layout">
+        <div class="essence-statement">
+          <div>
+            <div class="kicker">Essenza del brand</div>
+            <h2>Costruiamo digitale <em>che conta.</em></h2>
+            <p class="lead">TRIA trasforma idee ambiziose in prodotti digitali che le persone vogliono usare e che aiutano il business a crescere.</p>
+          </div>
+          <div class="foot"><span class="status">Tre developer indipendenti</span><span>Italia</span></div>
+        </div>
+        <div class="principles">
+          <article class="principle"><span class="num">01</span><div><h3>Visione prima del codice</h3><p>Partiamo dal problema vero, non dalla soluzione più ovvia.</p></div></article>
+          <article class="principle"><span class="num">02</span><div><h3>Qualità senza burocrazia</h3><p>Senior hands-on, cicli brevi e decisioni prese insieme.</p></div></article>
+          <article class="principle"><span class="num">03</span><div><h3>Tre talenti, un obiettivo</h3><p>Design, tecnologia e business lavorano allo stesso tavolo.</p></div></article>
+        </div>
+      </div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">01 / 15</div>
+    </section>
+
+    <!-- 02 / Positioning -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">02 — Posizionamento</div></header>
+      <div class="position-title"><div class="kicker">Il posto che vogliamo occupare</div><h2>Piccoli per scelta.<br/><em>Grandi nel lavoro.</em></h2></div>
+      <div class="position-grid">
+        <article class="position-cell"><span class="index">A / Promessa</span><strong>Il tuo team A, senza la distanza di una software house.</strong><p>Il cliente parla direttamente con chi pensa, disegna e scrive il codice. Ogni scelta è collegata a un risultato reale.</p></article>
+        <article class="position-cell"><span class="index">B / Per chi</span><strong>Founders, PMI e team che vogliono evolvere.</strong><ul><li>Nuovi prodotti digitali</li><li>Processi da automatizzare</li><li>Esperienze da ripensare</li><li>Business pronti a crescere</li></ul></article>
+        <article class="position-cell"><span class="index">C / Personalità</span><div class="axis"><span>Fredda</span><i></i><span>Umana</span></div><div class="axis"><span>Prudente</span><i></i><span>Audace</span></div><div class="axis"><span>Corporate</span><i></i><span>Indipendente</span></div><div class="axis"><span>Decorativa</span><i></i><span>Funzionale</span></div></article>
+      </div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">02 / 15</div>
+    </section>
+
+    <!-- 03 / Logo -->
+    <section class="page dark">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">03 — Marchio principale</div></header>
+      <div class="logo-stage">
+        <div class="logo-lockup"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div>
+      </div>
+      <div class="logo-notes">
+        <div><span class="index">01 / Simbolo</span><p>Il triangolo esprime le tre persone e una direzione comune. Il cerchio negativo porta equilibrio e un centro condiviso.</p></div>
+        <div><span class="index">02 / Wordmark</span><p>TRIA è composto in Manrope Bold con spaziatura compatta. Simbolo e nome devono conservare la proporzione mostrata.</p></div>
+        <div><span class="index">03 / Firma</span><p>La versione completa è prioritaria. Il simbolo isolato è ammesso per favicon, avatar e spazi inferiori a 24 mm.</p></div>
+      </div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">03 / 15</div>
+    </section>
+
+    <!-- 04 / Logo rules -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">04 — Uso del marchio</div></header>
+      <div class="logo-rule-grid">
+        <div><span class="index">Spazio di rispetto</span><div class="clearspace"><span class="x">X = diametro del cerchio</span><div class="safe"><div class="lock"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div></div></div><p class="small">Lasciare almeno 1× attorno al lockup. Dimensione minima consigliata: 28 mm in stampa, 96 px in digitale; simbolo isolato 8 mm / 24 px.</p></div>
+        <div><span class="index">Varianti approvate</span><div class="variants">
+          <div class="variant"><div class="lock"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div></div>
+          <div class="variant dark-v"><div class="lock"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div></div>
+          <div class="variant orange-v"><div class="lock"><svg class="mark-on-orange" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div></div>
+          <div class="variant cobalt-v"><div class="lock"><svg class="mark-on-cobalt" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div></div>
+        </div></div>
+      </div>
+      <div class="misuses"><div class="misuse stretch"><span>Non deformare</span></div><div class="misuse shadow"><span>Non aggiungere effetti</span></div><div class="misuse rotate"><span>Non ruotare</span></div><div class="misuse"><span style="color:#999">Non usare colori fuori palette</span></div></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">04 / 15</div>
+    </section>
+
+    <!-- 05 / Color -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">05 — Sistema colore</div></header>
+      <div class="swatches">
+        <article class="swatch ink-s"><div><span class="index">Primario 01</span><h3>Ink</h3></div><p>HEX #171716<br/>RGB 23 / 23 / 22<br/>CMYK* 0 / 0 / 4 / 91</p></article>
+        <article class="swatch paper-s"><div><span class="index">Primario 02</span><h3>Paper</h3></div><p>HEX #F1EEE6<br/>RGB 241 / 238 / 230<br/>CMYK* 0 / 1 / 5 / 5</p></article>
+        <article class="swatch orange-s"><div><span class="index">Accento</span><h3>Orange</h3></div><p>HEX #FF4B24<br/>RGB 255 / 75 / 36<br/>CMYK* 0 / 71 / 86 / 0</p></article>
+        <article class="swatch cobalt-s"><div><span class="index">Supporto</span><h3>Cobalt</h3></div><p>HEX #2449D8<br/>RGB 36 / 73 / 216<br/>CMYK* 83 / 66 / 0 / 15</p></article>
+        <article class="swatch lime-s"><div><span class="index">Segnale</span><h3>Lime</h3></div><p>HEX #D7EF3F<br/>RGB 215 / 239 / 63<br/>CMYK* 10 / 0 / 74 / 6</p></article>
+      </div>
+      <div class="color-guidance"><div><span class="index">Rapporto d’uso consigliato</span><div class="ratio"><i></i><i></i><i></i><i></i><i></i></div></div><p class="small">Paper e Ink costruiscono il sistema. Orange firma i messaggi decisivi. Cobalt struttura sezioni e contenuti. Lime segnala stati positivi o piccoli momenti sorpresa. *Valori CMYK indicativi: effettuare sempre una prova colore.</p></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">05 / 15</div>
+    </section>
+
+    <!-- 06 / Typography -->
+    <section class="page orange">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-orange" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">06 — Tipografia</div></header>
+      <div class="type-showcase">
+        <article class="font-card"><span class="index">Manrope / Voce principale</span><div class="alphabet">Aa Bb Cc<br/><em style="color:var(--paper)">che conta.</em></div><div class="numbers">0123456789 —?!</div><code>Regular 400 / Medium 500 / Semibold 600 / Bold 700<br/>Display: tracking da −7% a −4% · Corpo: tracking da −2% a 0</code></article>
+        <article class="font-card mono-card"><span class="index">DM Mono / Voce di sistema</span><div class="alphabet">Aa Bb Cc<br/>012345<br/>{ IDEA }<br/>→ BUILD</div><code>Light 300 / Regular 400 / Medium 500<br/>Maiuscolo · tracking +8% / +12%<br/>Indici, dati, label, navigazione</code></article>
+      </div>
+      <div class="type-rules"><div class="type-rule"><span class="index">Contrasto</span><p>Manrope è umana, grande e diretta. DM Mono porta precisione e cultura tecnica.</p></div><div class="type-rule"><span class="index">Accento</span><p>Una frase chiave può passare in corsivo arancione o avorio. Una sola per composizione.</p></div><div class="type-rule"><span class="index">Gerarchia</span><p>Titoli estremi, testi brevi, microcopy tecnica. Evitare muri di testo e troppi pesi insieme.</p></div></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">06 / 15</div>
+    </section>
+
+    <!-- 07 / Layout -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">07 — Griglia e composizione</div></header>
+      <div class="layout-demo"><div class="layout-copy"><span class="index">12 colonne / margine generoso</span><h3>Ordine rigoroso.<em>Gesto umano.</em></h3></div><div class="layout-side"><div><span class="index">Principio</span><p class="body">La griglia tiene insieme. Asimmetria, sovrapposizioni e accenti creano energia.</p></div><div><span class="index">Scala spazi</span><div class="spacing-scale"><span></span><span></span><span></span><span></span><span></span></div><p class="small">4 / 8 / 12 / 24 / 40</p></div></div></div>
+      <div class="grid-3" style="margin-top:5mm"><div class="small"><b class="index">01 / Respiro</b><p>Usare vuoto come elemento attivo. Il contenuto non deve riempire ogni spazio.</p></div><div class="small"><b class="index">02 / Tensione</b><p>Allineare con precisione, poi introdurre un solo elemento fuori asse.</p></div><div class="small"><b class="index">03 / Ritmo</b><p>Alternare superfici avorio, nere e cromatiche con bordi sottili da 1 px.</p></div></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">07 / 15</div>
+    </section>
+
+    <!-- 08 / Graphic language -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">08 — Linguaggio grafico</div></header>
+      <div class="graphic-grid">
+        <article class="graphic-tile big"><span class="index">Numerazione editoriale</span><p class="small">Indici, tappe e quantità diventano segni visivi. Sempre in DM Mono.</p><div class="big-number">03</div></article>
+        <article class="graphic-tile cobalt-t"><span class="index">Orbita / Relazione</span><div class="orbit-demo"></div></article>
+        <article class="graphic-tile"><span class="index">Gesto / Direzione</span><svg class="arrow-svg" viewBox="0 0 160 78" fill="none" stroke="currentColor" stroke-width="3"><path d="M10 52C35 8 101 2 148 28"/><path d="m126 12 24 16-18 22"/></svg></article>
+        <article class="graphic-tile"><span class="index">Chip / Microcopy</span><div class="chips"><span class="pill">{ idea }</span><span class="pill">→ build</span><span class="pill">03× minds</span></div></article>
+        <article class="graphic-tile lime-t"><span class="index">Icone / Linea</span><div class="line-icons"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="29"/><path d="M20 44h48M44 20v48"/></svg><svg viewBox="0 0 88 88"><ellipse cx="44" cy="44" rx="35" ry="16"/><ellipse cx="44" cy="44" rx="16" ry="35"/><circle cx="44" cy="44" r="4" fill="currentColor"/></svg></div></article>
+      </div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">08 / 15</div>
+    </section>
+
+    <!-- 09 / Imagery -->
+    <section class="page dark">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">09 — Immagini e persone</div></header>
+      <div class="team-strip">
+        <article class="member"><div class="photo"><img src="../../assets/manu-pixel-avatar.webp" alt="Avatar pixel di Manu"/></div><div class="member-copy"><div><span class="index">01 / Product + UX</span><h3>Manu<sup>01</sup></h3></div><p>Design systems · Research · Strategy</p></div></article>
+        <article class="member"><div class="photo"><img src="../../assets/leo-pixel-avatar.webp" alt="Avatar pixel di Leo"/></div><div class="member-copy"><div><span class="index">02 / Tech + Back-end</span><h3>Leo<sup>02</sup></h3></div><p>Cloud · API · AI systems</p></div></article>
+        <article class="member"><div class="photo"><img src="../../assets/fra-pixel-avatar.webp" alt="Avatar pixel di Fra"/></div><div class="member-copy"><div><span class="index">03 / Creative + Front-end</span><h3>Fra<sup>03</sup></h3></div><p>React · Motion · Creative dev</p></div></article>
+      </div>
+      <div class="photo-rules"><div class="photo-rule"><span class="index">Avatar</span><p>La pixel art è l’espressione illustrata del team: frontale, riconoscibile, con dettagli personali e fondo pieno di palette.</p></div><div class="photo-rule"><span class="index">Fotografia</span><p>Preferire momenti reali di lavoro, luce naturale, inquadrature ravvicinate e contesti autentici. Mai stock corporate.</p></div><div class="photo-rule"><span class="index">Trattamento</span><p>Contrasto netto, colori controllati, composizione editoriale. L’immagine racconta persone competenti, non personaggi costruiti.</p></div></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">09 / 15</div>
+    </section>
+
+    <!-- 10 / Voice -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">10 — Tono di voce</div></header>
+      <div class="voice-grid">
+        <article class="voice-card do"><span class="index">TRIA parla così ✓</span><blockquote>“In 48 ore ti rispondiamo con domande intelligenti, una prima direzione e zero giri di parole.”</blockquote><ul><li>Diretto, concreto, umano</li><li>Ambizioso ma mai arrogante</li><li>Tecnico solo quando serve</li><li>Frasi brevi e verbi attivi</li><li>Risultato prima della feature</li></ul></article>
+        <article class="voice-card dont"><span class="index">TRIA non parla così ×</span><blockquote>“Offriamo soluzioni innovative end-to-end per accelerare la trasformazione digitale.”</blockquote><ul><li>Niente gergo da consulenza</li><li>Niente superlativi senza prova</li><li>Niente promesse vaghe</li><li>Niente tono freddo o istituzionale</li><li>Niente ironia che ridicolizza il cliente</li></ul><div class="rewrite">RISCRIVI → “Capiamo cosa blocca il tuo business e costruiamo lo strumento giusto per farlo avanzare.”</div></article>
+      </div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">10 / 15</div>
+    </section>
+
+    <!-- 11 / Messaging -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">11 — Messaggi proprietari</div></header>
+      <div class="message-stack">
+        <article class="message-main"><span class="index">Claim principale</span><h3>Costruiamo digitale<br/><em style="color:var(--paper)">che conta.</em></h3><p class="body">Usarlo su homepage, presentazioni e materiali istituzionali. Non aggiungere spiegazioni dentro il claim.</p></article>
+        <div class="message-side"><article class="message-item"><span class="index">Firma dello studio</span><p><strong>Tre menti / un sistema.</strong></p></article><article class="message-item"><span class="index">Posizionamento</span><p><strong>Piccoli per scelta. Grandi nel lavoro.</strong></p></article><article class="message-item"><span class="index">Qualità</span><p><strong>Less, but exceptional.</strong></p></article><article class="message-item"><span class="index">Call to action</span><p><strong>Hai un’idea che merita di esistere?</strong></p></article></div>
+      </div>
+      <p class="small" style="margin-top:5mm">Regola: un messaggio proprietario per superficie. Claim e firme possono convivere solo se separati da una gerarchia evidente.</p>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">11 / 15</div>
+    </section>
+
+    <!-- 12 / Digital -->
+    <section class="page dark">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">12 — Esperienza digitale</div></header>
+      <div class="digital-shell"><div class="digital-main"><div class="digital-nav"><div class="digital-lock"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><span>Lavori &nbsp;&nbsp; Studio &nbsp;&nbsp; Metodo</span></div><div class="digital-hero">Costruiamo<br/>digitale<em>che conta.</em></div><div class="status">Tre developer indipendenti · Italia</div></div><aside class="digital-side"><div><span class="index">Componenti</span><div class="component primary" style="margin-top:5mm"><span>Parliamone</span><span>↗</span></div><div class="component" style="margin-top:3mm">01 — Sezione</div><div class="component" style="margin-top:3mm">{ IDEA → BUILD }</div></div><div><span class="index">Accessibilità</span><div class="a11y"><span>AA contrast</span><span>Focus visible</span><span>Reduced motion</span><span>Touch ≥ 44px</span></div></div></aside></div>
+      <p class="small" style="margin-top:4mm">Il movimento deve spiegare gerarchie e rispondere all’utente, non diventare decorazione. Le esperienze sorprendenti restano veloci, leggibili e pienamente utilizzabili da tastiera.</p>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">12 / 15</div>
+    </section>
+
+    <!-- 13 / Applications -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">13 — Applicazioni</div></header>
+      <div class="application-stage"><span class="application-label one">Business card / 85 × 55 mm</span><span class="application-label two">3 mm bleed / fronte + retro</span><div class="business-card front"><img src="../business-card/tria-business-card-front.svg" alt="Fronte biglietto TRIA"/></div><div class="business-card back"><img src="../business-card/tria-business-card-back.svg" alt="Retro biglietto TRIA"/></div></div>
+      <div class="grid-3" style="margin-top:4mm"><p class="small"><b class="index">Manifesto</b><br/>Una frase forte, una tensione tipografica, molto respiro.</p><p class="small"><b class="index">Contatto</b><br/>Informazioni reali, nessun riempitivo, gerarchia immediata.</p><p class="small"><b class="index">Produzione</b><br/>Preferire carta naturale non patinata. Verificare sempre il contrasto del nero e la resa dell’arancio.</p></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">13 / 15</div>
+    </section>
+
+    <!-- 14 / Governance -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">14 — Controllo qualità</div></header>
+      <div class="check-grid"><div><div class="kicker">Checklist prima di pubblicare</div><h2>Coerenza prima<br/><em>del rumore.</em></h2><ol class="checklist"><li><b>01</b><span>Il logo usa proporzioni e spazio di rispetto corretti?</span></li><li><b>02</b><span>La palette è limitata ai colori ufficiali?</span></li><li><b>03</b><span>Manrope guida e DM Mono supporta?</span></li><li><b>04</b><span>Il messaggio è concreto, breve e verificabile?</span></li><li><b>05</b><span>Contrasto, focus e leggibilità sono stati testati?</span></li><li><b>06</b><span>Ogni sorpresa ha una funzione reale?</span></li></ol></div><aside class="brand-kit"><span class="index">Brand kit canonico</span><h3>Una sola fonte di verità.</h3><dl><dt>Logo</dt><dd>Simbolo triangolo + cerchio dal sorgente SVG ufficiale.</dd><dt>Font</dt><dd>Manrope / DM Mono, Google Fonts.</dd><dt>Colori</dt><dd>Token presenti nel CSS ufficiale del sito.</dd><dt>Contatti</dt><dd>ciao@tria.studio<br/>tria.playgroundai.space</dd></dl><div class="legal-note"><b>Nota sul simbolo ®</b><br/>Usarlo soltanto se TRIA è un marchio effettivamente registrato nei territori interessati. In caso contrario rimuoverlo o valutare ™ con un professionista.</div></aside></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">14 / 15</div>
+    </section>
+
+    <!-- 15 / Closing -->
+    <section class="page closing orange">
+      <div class="cover-top"><div class="cover-brand"><svg class="mark-on-orange" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="cover-meta">Brand identity guidelines<br/>Fine / Versione 1.0</div></div>
+      <h1>Tre teste.<em style="color:var(--paper)">Un ottimo prodotto.</em></h1>
+      <div class="closing-contact"><a href="mailto:ciao@tria.studio">ciao@tria.studio ↗</a><p>tria.playgroundai.space<br/>Fatto con cura in Italia</p></div>
+    </section>
+  </body>
+</html>

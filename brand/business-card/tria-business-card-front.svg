@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="91mm" height="61mm" viewBox="0 0 910 610" role="img" aria-labelledby="title desc">
+  <title id="title">TRIA — biglietto da visita, fronte</title>
+  <desc id="desc">Fronte avorio con marchio TRIA, il messaggio Tre menti un sistema e dettagli editoriali.</desc>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;display=swap');
+      .sans { font-family: 'Manrope', Arial, sans-serif; }
+      .mono { font-family: 'DM Mono', 'Courier New', monospace; }
+    </style>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise"/>
+      <feComponentTransfer in="monoNoise">
+        <feFuncA type="table" tableValues="0 0.075"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- 91 × 61 mm includes 3 mm bleed around an 85 × 55 mm trim. -->
+  <rect width="910" height="610" fill="#f1eee6"/>
+
+  <g fill="#171716">
+    <g transform="translate(72 57) scale(1.36)">
+      <path d="M21 2 40 36H2L21 2Z"/>
+      <circle cx="21" cy="25" r="6.5" fill="#f1eee6"/>
+    </g>
+    <text class="sans" x="143" y="108" font-size="54" font-weight="700" letter-spacing="-4.2">TRIA</text>
+    <text class="mono" x="260" y="73" font-size="12" font-weight="400">®</text>
+  </g>
+
+  <g class="mono" fill="#171716" font-size="15" letter-spacing="1.1">
+    <text x="681" y="75">DIGITAL</text>
+    <text x="681" y="97">PRODUCT STUDIO</text>
+  </g>
+
+  <line x1="70" y1="139" x2="840" y2="139" stroke="#171716" stroke-width="1.5"/>
+  <text class="mono" x="70" y="172" fill="#171716" font-size="13" letter-spacing="1.2">03× MINDS</text>
+  <text class="mono" x="740" y="172" fill="#171716" font-size="13" letter-spacing="1.2">ITALIA</text>
+
+  <text class="sans" x="66" y="305" fill="#171716" font-size="106" font-weight="500" letter-spacing="-7.5">Tre menti</text>
+  <text class="sans" x="66" y="411" fill="#ff4b24" font-size="106" font-weight="500" font-style="italic" letter-spacing="-7.5">un sistema.</text>
+
+  <g transform="translate(676 205) rotate(-6)">
+    <rect x="0" y="0" width="156" height="49" rx="24.5" fill="none" stroke="#171716" stroke-opacity=".28" stroke-width="1.5"/>
+    <text class="mono" x="78" y="31" fill="#171716" font-size="12" text-anchor="middle" letter-spacing="1">{ IDEA → BUILD }</text>
+  </g>
+
+  <g fill="none" stroke="#171716" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M665 418C704 375 774 370 829 407"/>
+    <path d="m802 382 29 25-29 25"/>
+  </g>
+  <circle cx="664" cy="419" r="19" fill="#f1eee6" stroke="#171716" stroke-width="2"/>
+
+  <line x1="70" y1="500" x2="840" y2="500" stroke="#171716" stroke-width="1.5"/>
+  <g class="mono" font-size="14" letter-spacing=".7">
+    <circle cx="78" cy="544" r="7" fill="#50bd63"/>
+    <text x="97" y="549" fill="#171716">TRE DEVELOPER INDIPENDENTI</text>
+    <text x="784" y="549" fill="#171716">01 / 02</text>
+  </g>
+
+  <rect width="910" height="610" filter="url(#grain)" opacity=".5" pointer-events="none"/>
+</svg>
