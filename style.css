@@ -498,3 +498,6 @@ footer { padding: 70px var(--pad) 74px; background: var(--ink); color: var(--pap
 /* Performance: la grana a schermo intero costa cara sulle GPU mobili; le sezioni sotto la piega si renderizzano solo quando servono. */
 @media (pointer: coarse) { .noise { display: none; } }
 .work, .studio, .method, .quote, .contact { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+/* Anti-CLS: cifre a larghezza fissa dove il testo cambia da solo */
+[data-loader-count], [data-live-time] { font-variant-numeric: tabular-nums; }
