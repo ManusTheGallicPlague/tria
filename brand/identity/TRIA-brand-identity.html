@@ -252,6 +252,46 @@
       .application-label.one { left:6mm; bottom:5mm; }
       .application-label.two { right:6mm; top:5mm; }
 
+      /* Instagram profile */
+      .social-profile { display:grid; grid-template-columns:.78fr 1.22fr; gap:9mm; margin-top:8mm; }
+      .ig-avatar-stage { position:relative; height:124mm; overflow:hidden; display:grid; place-items:center; background:var(--ink); color:var(--paper); }
+      .ig-avatar-stage::before { content:""; position:absolute; width:93mm; height:71mm; border:2mm solid var(--cobalt); border-radius:50%; transform:rotate(-18deg); }
+      .ig-avatar-stage::after { content:""; position:absolute; width:7mm; height:7mm; right:22mm; top:35mm; border-radius:50%; background:var(--orange); }
+      .ig-avatar { position:relative; z-index:1; width:63mm; height:63mm; display:grid; place-items:center; }
+      .ig-avatar svg { width:55mm; height:55mm; }
+      .ig-avatar-note { position:absolute; left:5mm; bottom:5mm; color:var(--paper); font:400 7px/1.5 var(--mono); text-transform:uppercase; }
+      .profile-card { border:1px solid currentColor; padding:7mm; }
+      .profile-top { display:flex; align-items:flex-start; justify-content:space-between; gap:7mm; padding-bottom:5mm; border-bottom:1px solid var(--line); }
+      .profile-name h3 { margin:0 0 1mm; font-size:26px; }.profile-name p { margin:0; font:400 8px var(--mono); text-transform:uppercase; }
+      .profile-action { padding:3mm 5mm; background:var(--orange); font:500 7px var(--mono); text-transform:uppercase; }
+      .profile-bio { margin:6mm 0; font-size:16px; line-height:1.45; letter-spacing:-.025em; }
+      .profile-link { display:flex; justify-content:space-between; padding:3.5mm 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font:500 8px var(--mono); text-transform:uppercase; }
+      .profile-notes { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:5mm; }.profile-notes p { margin:1.5mm 0 0; font-size:8px; line-height:1.45; }
+      .highlight-row { display:grid; grid-template-columns:repeat(5,1fr); gap:5mm; margin-top:6mm; }
+      .highlight { text-align:center; font:400 6px var(--mono); text-transform:uppercase; }.highlight i { width:16mm; height:16mm; margin:0 auto 2mm; display:grid; place-items:center; border-radius:50%; border:1px solid var(--ink); background:var(--paper); font-style:normal; font-size:13px; }.highlight:nth-child(2) i{background:var(--cobalt);color:var(--paper)}.highlight:nth-child(3) i{background:var(--orange)}.highlight:nth-child(4) i{background:var(--lime)}.highlight:nth-child(5) i{background:var(--ink);color:var(--paper)}
+
+      /* Instagram content */
+      .pillar-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:3mm; margin-top:8mm; }
+      .pillar { min-height:100mm; padding:5mm; border:1px solid currentColor; display:flex; flex-direction:column; justify-content:space-between; }
+      .pillar:nth-child(2){background:var(--cobalt);color:var(--paper);border-color:var(--cobalt)}.pillar:nth-child(3){background:var(--lime);border-color:var(--lime)}.pillar:nth-child(5){background:var(--ink);color:var(--paper)}
+      .pillar .num { font:400 8px var(--mono); }.pillar h3 { margin-top:14mm; font-size:18px; }.pillar p { margin:0; font-size:8px; line-height:1.48; }
+      .content-funnel { display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:5mm; border:1px solid currentColor; }.funnel-step { padding:4mm; border-right:1px solid currentColor; }.funnel-step:last-child{border:0}.funnel-step strong{display:block;font-size:13px}.funnel-step span{font:400 6px var(--mono);text-transform:uppercase}
+
+      /* Instagram formats */
+      .format-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; margin-top:7mm; }
+      .format-card { min-height:121mm; padding:5mm; border:1px solid currentColor; display:flex; flex-direction:column; }
+      .format-card:nth-child(2){background:var(--orange)}.format-card:nth-child(3){background:var(--cobalt);color:var(--paper);border-color:var(--cobalt)}.format-card:nth-child(4){background:var(--ink);color:var(--paper)}
+      .format-frame { position:relative; margin:6mm auto 5mm; width:39mm; background:rgba(255,255,255,.18); border:1px solid currentColor; display:grid; place-items:center; overflow:hidden; }.format-frame.feed{height:49mm}.format-frame.story{height:69mm;width:39mm}.format-frame.square{height:39mm;border-radius:50%}
+      .format-frame::before { content:"SAFE"; font:400 7px var(--mono); opacity:.65; }.format-frame.story::after { content:""; position:absolute; left:6%; right:6%; top:14%; bottom:35%; border:1px dashed var(--lime); }
+      .format-card h3 { font-size:17px; margin:0 0 2mm; }.format-card p { margin:auto 0 0; font-size:7.5px; line-height:1.45; }.format-card code { font:500 7px var(--mono); }
+
+      /* Instagram launch grid */
+      .launch-layout { display:grid; grid-template-columns:1.08fr .92fr; gap:9mm; margin-top:7mm; }
+      .launch-grid { aspect-ratio:1; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:2mm; background:var(--ink); padding:2mm; }
+      .launch-tile { position:relative; overflow:hidden; padding:4mm; background:var(--paper); color:var(--ink); display:flex; flex-direction:column; justify-content:space-between; }
+      .launch-tile strong { font-size:13px; line-height:.92; letter-spacing:-.04em; text-transform:uppercase; }.launch-tile small { font:400 5.5px var(--mono); text-transform:uppercase; }.launch-tile.orange-t{background:var(--orange)}.launch-tile.cobalt-t{background:var(--cobalt);color:var(--paper)}.launch-tile.lime-t{background:var(--lime)}.launch-tile.ink-t{background:var(--ink);color:var(--paper)}
+      .launch-side h2 { font-size:36px; margin-bottom:5mm; }.launch-list { list-style:none; padding:0; margin:0; border-top:1px solid currentColor; }.launch-list li { display:grid; grid-template-columns:10mm 1fr; gap:3mm; padding:3mm 0; border-bottom:1px solid currentColor; font-size:8px; line-height:1.35; }.launch-list b { font:400 7px var(--mono); color:var(--orange); }
+
       /* Governance */
       .check-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:9mm; margin-top:8mm; }
       .checklist { list-style:none; margin:0; padding:0; border-top:1px solid currentColor; }
@@ -277,6 +317,9 @@
         .page { margin:0; box-shadow:none; }
         .page::before { display:none; }
       }
+      body.single-page { background:transparent; overflow:hidden; }
+      body.single-page .page { display:none; margin:0; box-shadow:none; }
+      body.single-page .page.selected { display:block; }
       @page { size:A4 landscape; margin:0; }
     </style>
   </head>
@@ -288,7 +331,7 @@
           <svg class="mark-on-paper" viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg>
           <span>TRIA</span><sup>®</sup>
         </div>
-        <div class="cover-meta">Brand identity guidelines<br/>Versione 1.0 / Agosto 2026<br/>Uso interno + partner</div>
+        <div class="cover-meta">Brand identity + social guidelines<br/>Versione 2.0 / Agosto 2026<br/>Uso interno + partner</div>
       </div>
       <div class="cover-title">
         <div class="cover-orbit"></div>
@@ -318,11 +361,11 @@
         </div>
         <div class="principles">
           <article class="principle"><span class="num">01</span><div><h3>Visione prima del codice</h3><p>Partiamo dal problema vero, non dalla soluzione più ovvia.</p></div></article>
-          <article class="principle"><span class="num">02</span><div><h3>Qualità senza burocrazia</h3><p>Senior hands-on, cicli brevi e decisioni prese insieme.</p></div></article>
-          <article class="principle"><span class="num">03</span><div><h3>Tre talenti, un obiettivo</h3><p>Design, tecnologia e business lavorano allo stesso tavolo.</p></div></article>
+          <article class="principle"><span class="num">02</span><div><h3>Qualità senza burocrazia</h3><p>Founder hands-on, cicli brevi e decisioni prese insieme.</p></div></article>
+          <article class="principle"><span class="num">03</span><div><h3>Tre talenti, un obiettivo</h3><p>Business, prodotto e tecnologia lavorano allo stesso tavolo.</p></div></article>
         </div>
       </div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">01 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">01 / 19</div>
     </section>
 
     <!-- 02 / Positioning -->
@@ -330,11 +373,11 @@
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">02 — Posizionamento</div></header>
       <div class="position-title"><div class="kicker">Il posto che vogliamo occupare</div><h2>Piccoli per scelta.<br/><em>Grandi nel lavoro.</em></h2></div>
       <div class="position-grid">
-        <article class="position-cell"><span class="index">A / Promessa</span><strong>Il tuo team A, senza la distanza di una software house.</strong><p>Il cliente parla direttamente con chi pensa, disegna e scrive il codice. Ogni scelta è collegata a un risultato reale.</p></article>
+        <article class="position-cell"><span class="index">A / Promessa</span><strong>Il tuo team A, senza la distanza di una software house.</strong><p>Il cliente parla direttamente con chi guida business, prodotto e tecnologia. Ogni scelta è collegata a un risultato reale.</p></article>
         <article class="position-cell"><span class="index">B / Per chi</span><strong>Founders, PMI e team che vogliono evolvere.</strong><ul><li>Nuovi prodotti digitali</li><li>Processi da automatizzare</li><li>Esperienze da ripensare</li><li>Business pronti a crescere</li></ul></article>
         <article class="position-cell"><span class="index">C / Personalità</span><div class="axis"><span>Fredda</span><i></i><span>Umana</span></div><div class="axis"><span>Prudente</span><i></i><span>Audace</span></div><div class="axis"><span>Corporate</span><i></i><span>Indipendente</span></div><div class="axis"><span>Decorativa</span><i></i><span>Funzionale</span></div></article>
       </div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">02 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">02 / 19</div>
     </section>
 
     <!-- 03 / Logo -->
@@ -348,7 +391,7 @@
         <div><span class="index">02 / Wordmark</span><p>TRIA è composto in Manrope Bold con spaziatura compatta. Simbolo e nome devono conservare la proporzione mostrata.</p></div>
         <div><span class="index">03 / Firma</span><p>La versione completa è prioritaria. Il simbolo isolato è ammesso per favicon, avatar e spazi inferiori a 24 mm.</p></div>
       </div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">03 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">03 / 19</div>
     </section>
 
     <!-- 04 / Logo rules -->
@@ -364,7 +407,7 @@
         </div></div>
       </div>
       <div class="misuses"><div class="misuse stretch"><span>Non deformare</span></div><div class="misuse shadow"><span>Non aggiungere effetti</span></div><div class="misuse rotate"><span>Non ruotare</span></div><div class="misuse"><span style="color:#999">Non usare colori fuori palette</span></div></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">04 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">04 / 19</div>
     </section>
 
     <!-- 05 / Color -->
@@ -378,7 +421,7 @@
         <article class="swatch lime-s"><div><span class="index">Segnale</span><h3>Lime</h3></div><p>HEX #D7EF3F<br/>RGB 215 / 239 / 63<br/>CMYK* 10 / 0 / 74 / 6</p></article>
       </div>
       <div class="color-guidance"><div><span class="index">Rapporto d’uso consigliato</span><div class="ratio"><i></i><i></i><i></i><i></i><i></i></div></div><p class="small">Paper e Ink costruiscono il sistema. Orange firma i messaggi decisivi. Cobalt struttura sezioni e contenuti. Lime segnala stati positivi o piccoli momenti sorpresa. *Valori CMYK indicativi: effettuare sempre una prova colore.</p></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">05 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">05 / 19</div>
     </section>
 
     <!-- 06 / Typography -->
@@ -389,7 +432,7 @@
         <article class="font-card mono-card"><span class="index">DM Mono / Voce di sistema</span><div class="alphabet">Aa Bb Cc<br/>012345<br/>{ IDEA }<br/>→ BUILD</div><code>Light 300 / Regular 400 / Medium 500<br/>Maiuscolo · tracking +8% / +12%<br/>Indici, dati, label, navigazione</code></article>
       </div>
       <div class="type-rules"><div class="type-rule"><span class="index">Contrasto</span><p>Manrope è umana, grande e diretta. DM Mono porta precisione e cultura tecnica.</p></div><div class="type-rule"><span class="index">Accento</span><p>Una frase chiave può passare in corsivo arancione o avorio. Una sola per composizione.</p></div><div class="type-rule"><span class="index">Gerarchia</span><p>Titoli estremi, testi brevi, microcopy tecnica. Evitare muri di testo e troppi pesi insieme.</p></div></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">06 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">06 / 19</div>
     </section>
 
     <!-- 07 / Layout -->
@@ -397,7 +440,7 @@
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">07 — Griglia e composizione</div></header>
       <div class="layout-demo"><div class="layout-copy"><span class="index">12 colonne / margine generoso</span><h3>Ordine rigoroso.<em>Gesto umano.</em></h3></div><div class="layout-side"><div><span class="index">Principio</span><p class="body">La griglia tiene insieme. Asimmetria, sovrapposizioni e accenti creano energia.</p></div><div><span class="index">Scala spazi</span><div class="spacing-scale"><span></span><span></span><span></span><span></span><span></span></div><p class="small">4 / 8 / 12 / 24 / 40</p></div></div></div>
       <div class="grid-3" style="margin-top:5mm"><div class="small"><b class="index">01 / Respiro</b><p>Usare vuoto come elemento attivo. Il contenuto non deve riempire ogni spazio.</p></div><div class="small"><b class="index">02 / Tensione</b><p>Allineare con precisione, poi introdurre un solo elemento fuori asse.</p></div><div class="small"><b class="index">03 / Ritmo</b><p>Alternare superfici avorio, nere e cromatiche con bordi sottili da 1 px.</p></div></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">07 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">07 / 19</div>
     </section>
 
     <!-- 08 / Graphic language -->
@@ -410,29 +453,29 @@
         <article class="graphic-tile"><span class="index">Chip / Microcopy</span><div class="chips"><span class="pill">{ idea }</span><span class="pill">→ build</span><span class="pill">03× minds</span></div></article>
         <article class="graphic-tile lime-t"><span class="index">Icone / Linea</span><div class="line-icons"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="29"/><path d="M20 44h48M44 20v48"/></svg><svg viewBox="0 0 88 88"><ellipse cx="44" cy="44" rx="35" ry="16"/><ellipse cx="44" cy="44" rx="16" ry="35"/><circle cx="44" cy="44" r="4" fill="currentColor"/></svg></div></article>
       </div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">08 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">08 / 19</div>
     </section>
 
     <!-- 09 / Imagery -->
     <section class="page dark">
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">09 — Immagini e persone</div></header>
       <div class="team-strip">
-        <article class="member"><div class="photo"><img src="../../assets/manu-pixel-avatar.webp" alt="Avatar pixel di Manu"/></div><div class="member-copy"><div><span class="index">01 / Product + UX</span><h3>Manu<sup>01</sup></h3></div><p>Design systems · Research · Strategy</p></div></article>
-        <article class="member"><div class="photo"><img src="../../assets/leo-pixel-avatar.webp" alt="Avatar pixel di Leo"/></div><div class="member-copy"><div><span class="index">02 / Tech + Back-end</span><h3>Leo<sup>02</sup></h3></div><p>Cloud · API · AI systems</p></div></article>
-        <article class="member"><div class="photo"><img src="../../assets/fra-pixel-avatar.webp" alt="Avatar pixel di Fra"/></div><div class="member-copy"><div><span class="index">03 / Creative + Front-end</span><h3>Fra<sup>03</sup></h3></div><p>React · Motion · Creative dev</p></div></article>
+        <article class="member"><div class="photo"><img src="../../assets/fra-pixel-avatar.webp" alt="Avatar pixel di Fra"/></div><div class="member-copy"><div><span class="index">01 / CEO + Business</span><h3>Fra<sup>01</sup></h3></div><p>Business strategy · Client partnership · Growth</p></div></article>
+        <article class="member"><div class="photo"><img src="../../assets/leo-pixel-avatar.webp" alt="Avatar pixel di Leo"/></div><div class="member-copy"><div><span class="index">02 / CPO + Product</span><h3>Leo<sup>02</sup></h3></div><p>Product strategy · UX · Roadmap</p></div></article>
+        <article class="member"><div class="photo"><img src="../../assets/manu-pixel-avatar.webp" alt="Avatar pixel di Manu"/></div><div class="member-copy"><div><span class="index">03 / CTO + Technology</span><h3>Manu<sup>03</sup></h3></div><p>Architecture · Engineering · AI systems</p></div></article>
       </div>
       <div class="photo-rules"><div class="photo-rule"><span class="index">Avatar</span><p>La pixel art è l’espressione illustrata del team: frontale, riconoscibile, con dettagli personali e fondo pieno di palette.</p></div><div class="photo-rule"><span class="index">Fotografia</span><p>Preferire momenti reali di lavoro, luce naturale, inquadrature ravvicinate e contesti autentici. Mai stock corporate.</p></div><div class="photo-rule"><span class="index">Trattamento</span><p>Contrasto netto, colori controllati, composizione editoriale. L’immagine racconta persone competenti, non personaggi costruiti.</p></div></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">09 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">09 / 19</div>
     </section>
 
     <!-- 10 / Voice -->
     <section class="page">
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">10 — Tono di voce</div></header>
       <div class="voice-grid">
-        <article class="voice-card do"><span class="index">TRIA parla così ✓</span><blockquote>“In 48 ore ti rispondiamo con domande intelligenti, una prima direzione e zero giri di parole.”</blockquote><ul><li>Diretto, concreto, umano</li><li>Ambizioso ma mai arrogante</li><li>Tecnico solo quando serve</li><li>Frasi brevi e verbi attivi</li><li>Risultato prima della feature</li></ul></article>
+        <article class="voice-card do"><span class="index">TRIA parla così ✓</span><blockquote>“Ti rispondiamo con domande intelligenti, una prima direzione e zero giri di parole.”</blockquote><ul><li>Diretto, concreto, umano</li><li>Ambizioso ma mai arrogante</li><li>Tecnico solo quando serve</li><li>Frasi brevi e verbi attivi</li><li>Risultato prima della feature</li></ul></article>
         <article class="voice-card dont"><span class="index">TRIA non parla così ×</span><blockquote>“Offriamo soluzioni innovative end-to-end per accelerare la trasformazione digitale.”</blockquote><ul><li>Niente gergo da consulenza</li><li>Niente superlativi senza prova</li><li>Niente promesse vaghe</li><li>Niente tono freddo o istituzionale</li><li>Niente ironia che ridicolizza il cliente</li></ul><div class="rewrite">RISCRIVI → “Capiamo cosa blocca il tuo business e costruiamo lo strumento giusto per farlo avanzare.”</div></article>
       </div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">10 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">10 / 19</div>
     </section>
 
     <!-- 11 / Messaging -->
@@ -443,7 +486,7 @@
         <div class="message-side"><article class="message-item"><span class="index">Firma dello studio</span><p><strong>Tre menti / un sistema.</strong></p></article><article class="message-item"><span class="index">Posizionamento</span><p><strong>Piccoli per scelta. Grandi nel lavoro.</strong></p></article><article class="message-item"><span class="index">Qualità</span><p><strong>Less, but exceptional.</strong></p></article><article class="message-item"><span class="index">Call to action</span><p><strong>Hai un’idea che merita di esistere?</strong></p></article></div>
       </div>
       <p class="small" style="margin-top:5mm">Regola: un messaggio proprietario per superficie. Claim e firme possono convivere solo se separati da una gerarchia evidente.</p>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">11 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">11 / 19</div>
     </section>
 
     <!-- 12 / Digital -->
@@ -451,7 +494,7 @@
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">12 — Esperienza digitale</div></header>
       <div class="digital-shell"><div class="digital-main"><div class="digital-nav"><div class="digital-lock"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><span>Lavori &nbsp;&nbsp; Studio &nbsp;&nbsp; Metodo</span></div><div class="digital-hero">Costruiamo<br/>digitale<em>che conta.</em></div><div class="status">Tre developer indipendenti · Italia</div></div><aside class="digital-side"><div><span class="index">Componenti</span><div class="component primary" style="margin-top:5mm"><span>Parliamone</span><span>↗</span></div><div class="component" style="margin-top:3mm">01 — Sezione</div><div class="component" style="margin-top:3mm">{ IDEA → BUILD }</div></div><div><span class="index">Accessibilità</span><div class="a11y"><span>AA contrast</span><span>Focus visible</span><span>Reduced motion</span><span>Touch ≥ 44px</span></div></div></aside></div>
       <p class="small" style="margin-top:4mm">Il movimento deve spiegare gerarchie e rispondere all’utente, non diventare decorazione. Le esperienze sorprendenti restano veloci, leggibili e pienamente utilizzabili da tastiera.</p>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">12 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">12 / 19</div>
     </section>
 
     <!-- 13 / Applications -->
@@ -459,21 +502,95 @@
       <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">13 — Applicazioni</div></header>
       <div class="application-stage"><span class="application-label one">Business card / 85 × 55 mm</span><span class="application-label two">3 mm bleed / fronte + retro</span><div class="business-card front"><img src="../business-card/tria-business-card-front.svg" alt="Fronte biglietto TRIA"/></div><div class="business-card back"><img src="../business-card/tria-business-card-back.svg" alt="Retro biglietto TRIA"/></div></div>
       <div class="grid-3" style="margin-top:4mm"><p class="small"><b class="index">Manifesto</b><br/>Una frase forte, una tensione tipografica, molto respiro.</p><p class="small"><b class="index">Contatto</b><br/>Informazioni reali, nessun riempitivo, gerarchia immediata.</p><p class="small"><b class="index">Produzione</b><br/>Preferire carta naturale non patinata. Verificare sempre il contrasto del nero e la resa dell’arancio.</p></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">13 / 15</div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">13 / 19</div>
     </section>
 
-    <!-- 14 / Governance -->
+    <!-- 14 / Instagram profile -->
     <section class="page">
-      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">14 — Controllo qualità</div></header>
-      <div class="check-grid"><div><div class="kicker">Checklist prima di pubblicare</div><h2>Coerenza prima<br/><em>del rumore.</em></h2><ol class="checklist"><li><b>01</b><span>Il logo usa proporzioni e spazio di rispetto corretti?</span></li><li><b>02</b><span>La palette è limitata ai colori ufficiali?</span></li><li><b>03</b><span>Manrope guida e DM Mono supporta?</span></li><li><b>04</b><span>Il messaggio è concreto, breve e verificabile?</span></li><li><b>05</b><span>Contrasto, focus e leggibilità sono stati testati?</span></li><li><b>06</b><span>Ogni sorpresa ha una funzione reale?</span></li></ol></div><aside class="brand-kit"><span class="index">Brand kit canonico</span><h3>Una sola fonte di verità.</h3><dl><dt>Logo</dt><dd>Simbolo triangolo + cerchio dal sorgente SVG ufficiale.</dd><dt>Font</dt><dd>Manrope / DM Mono, Google Fonts.</dd><dt>Colori</dt><dd>Token presenti nel CSS ufficiale del sito.</dd><dt>Contatti</dt><dd>ciao@tria.studio<br/>tria.playgroundai.space</dd></dl><div class="legal-note"><b>Nota sul simbolo ®</b><br/>Usarlo soltanto se TRIA è un marchio effettivamente registrato nei territori interessati. In caso contrario rimuoverlo o valutare ™ con un professionista.</div></aside></div>
-      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">14 / 15</div>
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><div class="chapter">14 — Profilo Instagram</div></header>
+      <div class="social-profile">
+        <div class="ig-avatar-stage"><div class="ig-avatar"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg></div><div class="ig-avatar-note">Avatar 1:1 / crop circolare<br/>Solo simbolo · nessun ®</div></div>
+        <div>
+          <div class="profile-card">
+            <div class="profile-top"><div class="profile-name"><h3>TRIA | Digital Product Studio</h3><p>Handle ufficiale · @triadigitalproductstudio</p></div><span class="profile-action">Parliamone ↗</span></div>
+            <p class="profile-bio">Tre developer. Business, prodotto e tecnologia.<br/>Costruiamo digitale che conta.<br/>↓ Raccontaci la tua idea</p>
+            <div class="profile-link"><span>tria.playgroundai.space</span><span>↗</span></div>
+            <div class="profile-notes"><div><span class="index">Categoria</span><p>Software company. Profilo professionale e pulsante e-mail solo dopo verifica del contatto.</p></div><div><span class="index">Handle</span><p>@triadigitalproductstudio è il riferimento ufficiale. Usarlo senza abbreviazioni in sito, materiali e firme.</p></div></div>
+          </div>
+          <div class="highlight-row"><div class="highlight"><i>03</i>Studio</div><div class="highlight"><i>↗</i>Lavori</div><div class="highlight"><i>→</i>Metodo</div><div class="highlight"><i>{ }</i>Insight</div><div class="highlight"><i>+</i>Contatti</div></div>
+        </div>
+      </div>
+      <div class="edition">TRIA / Social identity / 2026</div><div class="page-number">14 / 19</div>
     </section>
 
-    <!-- 15 / Closing -->
+    <!-- 15 / Instagram content -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><div class="chapter">15 — Sistema editoriale</div></header>
+      <div class="kicker">Non pubblicare per riempire. Pubblicare per dimostrare.</div><h2 style="margin-top:4mm">Ogni contenuto deve portare<br/><em>una prova o una scelta.</em></h2>
+      <div class="pillar-grid">
+        <article class="pillar"><span class="num">01 / 30%</span><div><h3>Lavori<br/>e prove</h3><p>Case study, demo, schermate e decisioni reali. La competenza si mostra con ciò che esiste.</p></div></article>
+        <article class="pillar"><span class="num">02 / 25%</span><div><h3>Scelte che<br/>contano</h3><p>UX, priorità, trade-off e TRIA / POV. Spiegare il perché prima del come.</p></div></article>
+        <article class="pillar"><span class="num">03 / 20%</span><div><h3>Build in<br/>public</h3><p>Prototipi, progressi, release e { IDEA → BUILD }. Mostrare il lavoro mentre prende forma.</p></div></article>
+        <article class="pillar"><span class="num">04 / 15%</span><div><h3>Tre<br/>menti</h3><p>Fra / Business, Leo / Product, Manu / Technology. Persone reali, ruoli precisi.</p></div></article>
+        <article class="pillar"><span class="num">05 / 10%</span><div><h3>Metodo<br/>e offerta</h3><p>Processo, FAQ e inviti al contatto. Un solo messaggio commerciale per contenuto.</p></div></article>
+      </div>
+      <div class="content-funnel"><div class="funnel-step"><span>Scoprire</span><strong>Hook + punto di vista</strong></div><div class="funnel-step"><span>Fidarsi</span><strong>Prova + ragionamento</strong></div><div class="funnel-step"><span>Agire</span><strong>Un invito chiaro</strong></div></div>
+      <div class="edition">TRIA / Social identity / 2026</div><div class="page-number">15 / 19</div>
+    </section>
+
+    <!-- 16 / Instagram formats -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><div class="chapter">16 — Formati e safe area</div></header>
+      <div class="format-grid">
+        <article class="format-card"><span class="index">Feed / 4:5</span><div class="format-frame feed"></div><h3>Post verticale</h3><code>MASTER 1440 × 1800<br/>EXPORT 1080 × 1350</code><p>Formato canonico: compatibile con feed organico, carosello grafico e possibile sponsorizzazione.</p></article>
+        <article class="format-card"><span class="index">Carousel / 4:5</span><div class="format-frame feed"></div><h3>Una sola gabbia</h3><code>1080 × 1350 / SLIDE</code><p>Stessi margini su ogni card. Cover = promessa; centro = prova; ultima = una CTA.</p></article>
+        <article class="format-card"><span class="index">Story + Reel / 9:16</span><div class="format-frame story"></div><h3>Verticale pieno</h3><code>MASTER 1440 × 2560<br/>EXPORT 1080 × 1920</code><p>Zona prudente: 6% lati, 14% alto e 35% basso liberi da testi, logo ed elementi chiave.</p></article>
+        <article class="format-card"><span class="index">Profilo / 1:1</span><div class="format-frame square"></div><h3>Simbolo centrale</h3><code>SORGENTE 1080 × 1080</code><p>Fondo Ink pieno, simbolo entro il 70% del diametro e test con maschera circolare.</p></article>
+      </div>
+      <p class="small" style="margin-top:5mm">L’organico supporta anche il rapporto 3:4. TRIA adotta il 4:5 come default più interoperabile. Le percentuali safe area derivano dalle guide Meta per Stories e Reels; verificarle di nuovo quando cambia l’interfaccia.</p>
+      <div class="edition">TRIA / Social identity / 2026</div><div class="page-number">16 / 19</div>
+    </section>
+
+    <!-- 17 / Instagram launch -->
+    <section class="page dark">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-ink" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span></div><div class="chapter">17 — Griglia di lancio</div></header>
+      <div class="launch-layout">
+        <div class="launch-grid">
+          <article class="launch-tile"><small>09 / Contatto</small><strong>Hai un’idea che merita di esistere?</strong></article>
+          <article class="launch-tile cobalt-t"><small>08 / Case 01</small><strong>PlaygroundAI</strong></article>
+          <article class="launch-tile lime-t"><small>07 / Metodo</small><strong>Dal primo “e se…” al primo wow.</strong></article>
+          <article class="launch-tile orange-t"><small>06 / Technology</small><strong>Manu<br/>CTO</strong></article>
+          <article class="launch-tile"><small>05 / Product</small><strong>Leo<br/>CPO</strong></article>
+          <article class="launch-tile cobalt-t"><small>04 / Business</small><strong>Fra<br/>CEO</strong></article>
+          <article class="launch-tile ink-t"><small>03 / Sistema</small><strong>Business. Product. Technology.</strong></article>
+          <article class="launch-tile"><small>02 / Posizione</small><strong>Non siamo una software house.</strong></article>
+          <article class="launch-tile orange-t"><small>01 / Manifesto</small><strong>Costruiamo digitale che conta.</strong></article>
+        </div>
+        <div class="launch-side"><span class="index">Primi nove contenuti</span><h2>Una storia completa.<br/><em>Non un mosaico.</em></h2><ol class="launch-list"><li><b>01–03</b><span>Manifesto, posizionamento e sistema TRIA: da fissare in alto.</span></li><li><b>04–06</b><span>Fra, Leo e Manu: una responsabilità e un punto di vista per persona.</span></li><li><b>07–09</b><span>Metodo, prima prova concreta e invito alla conversazione.</span></li><li><b>REGOLA</b><span>Ogni post deve funzionare da solo: il feed cambia, la leggibilità resta.</span></li></ol></div>
+      </div>
+      <div class="edition">TRIA / Social identity / 2026</div><div class="page-number">17 / 19</div>
+    </section>
+
+    <!-- 18 / Governance -->
+    <section class="page">
+      <header class="page-head"><div class="mini-brand"><svg class="mark-on-paper" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="chapter">18 — Controllo qualità</div></header>
+      <div class="check-grid"><div><div class="kicker">Checklist prima di pubblicare</div><h2>Coerenza prima<br/><em>del rumore.</em></h2><ol class="checklist"><li><b>01</b><span>Logo, palette e tipografia provengono dal kit canonico?</span></li><li><b>02</b><span>Il contenuto appartiene a un pilastro e ha un solo obiettivo?</span></li><li><b>03</b><span>Hook, prova e invito sono leggibili senza aprire la caption?</span></li><li><b>04</b><span>Ogni dato, risultato e affermazione può essere verificato?</span></li><li><b>05</b><span>Safe area, contrasto, alt text e sottotitoli sono stati controllati?</span></li><li><b>06</b><span>CTA, link, contatti e autorizzazioni sono corretti?</span></li></ol></div><aside class="brand-kit"><span class="index">Brand kit canonico</span><h3>Una sola fonte di verità.</h3><dl><dt>Logo</dt><dd>Master e varianti SVG in <b>brand/instagram/assets</b>.</dd><dt>Font + colori</dt><dd>Manrope / DM Mono e token presenti nel CSS ufficiale.</dd><dt>Social</dt><dd>Template, copy e workflow in <b>brand/instagram</b>.</dd><dt>Contatti</dt><dd>tria.playgroundai.space<br/>Instagram: @triadigitalproductstudio<br/>E-mail da verificare prima del lancio.</dd></dl><div class="legal-note"><b>Nota sul simbolo ®</b><br/>Default social: nessun simbolo legale finché la registrazione di TRIA non è stata verificata. Usare ® soltanto per un marchio effettivamente registrato nei territori interessati.</div></aside></div>
+      <div class="edition">TRIA / Brand identity / 2026</div><div class="page-number">18 / 19</div>
+    </section>
+
+    <!-- 19 / Closing -->
     <section class="page closing orange">
-      <div class="cover-top"><div class="cover-brand"><svg class="mark-on-orange" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="cover-meta">Brand identity guidelines<br/>Fine / Versione 1.0</div></div>
+      <div class="cover-top"><div class="cover-brand"><svg class="mark-on-orange" viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5"/></svg><span>TRIA</span><sup>®</sup></div><div class="cover-meta">Brand identity + social guidelines<br/>Fine / Versione 2.0</div></div>
       <h1>Tre teste.<em style="color:var(--paper)">Un ottimo prodotto.</em></h1>
       <div class="closing-contact"><a href="mailto:ciao@tria.studio">ciao@tria.studio ↗</a><p>tria.playgroundai.space<br/>Fatto con cura in Italia</p></div>
     </section>
+    <script>
+      const requestedPage=Number.parseInt(new URLSearchParams(location.search).get('page'),10);
+      if(Number.isInteger(requestedPage)){
+        const pages=[...document.querySelectorAll('.page')];
+        const selected=pages[requestedPage];
+        if(selected){document.body.classList.add('single-page');selected.classList.add('selected')}
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+  <title id="title">TRIA — cover Highlight Contatti</title>
+  <desc id="desc">Cover Story Orange dedicata ai contatti TRIA, con icona monolineare di un messaggio in uscita.</desc>
+  <defs>
+    <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M90 0H0V90" fill="none" stroke="#171716" stroke-width="2" opacity=".09"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="#ff4b24"/>
+  <rect width="1080" height="1920" fill="url(#grid)"/>
+  <g fill="#171716">
+    <path transform="translate(80 92) scale(1.7)" fill-rule="evenodd" clip-rule="evenodd" d="M21 2 40 36H2L21 2ZM21 18.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"/>
+    <text x="164" y="147" font-family="Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-3.64">TRIA</text>
+    <text x="80" y="1725" font-family="Manrope, Arial, sans-serif" font-size="132" font-weight="500" letter-spacing="-9">Contatti.</text>
+    <text x="82" y="1784" font-family="DM Mono, Courier New, monospace" font-size="24" font-weight="400" letter-spacing="3">PARLIAMONE / TRIA</text>
+  </g>
+  <text x="1000" y="135" fill="#171716" text-anchor="end" font-family="DM Mono, Courier New, monospace" font-size="24" letter-spacing="3">05 / 05</text>
+  <ellipse cx="540" cy="960" rx="340" ry="270" fill="none" stroke="#f1eee6" stroke-width="10" opacity=".65" transform="rotate(-17 540 960)"/>
+  <circle cx="244" cy="829" r="18" fill="#2449d8"/>
+  <g fill="none" stroke="#171716" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="363" y="840" width="354" height="246"/>
+    <path d="m363 865 177 133 177-133"/>
+    <path d="M584 832h139v139M723 832 588 967"/>
+  </g>
+  <rect x="80" y="1815" width="920" height="2" fill="#171716" opacity=".35"/>
+</svg>

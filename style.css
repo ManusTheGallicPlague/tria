@@ -32,6 +32,8 @@ button { color: inherit; }
   pointer-events: none;
   z-index: 20;
   opacity: .035;
+  will-change: transform;
+  contain: strict;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 .loader {
@@ -106,7 +108,7 @@ body.secret-mode { --orange: #d7ef3f; --cobalt: #ec43a8; --lime: #52e4ff; }
 
 .section-pad { padding: clamp(100px, 12vw, 180px) var(--pad); }
 .section-index { padding-bottom: 18px; border-bottom: 1px solid var(--line); font: 400 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
 .reveal.in-view { opacity: 1; transform: none; }
 .delay-1 { transition-delay: .12s; }
 .delay-2 { transition-delay: .24s; }
@@ -117,10 +119,10 @@ body.secret-mode { --orange: #d7ef3f; --cobalt: #ec43a8; --lime: #52e4ff; }
 .hero-eyebrow { display: flex; align-items: center; gap: 10px; font: 400 10px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
 .live-time { margin-left: 2px; padding-left: 10px; border-left: 1px solid var(--line); font-variant-numeric: tabular-nums; }
 .hero-orbit { position: absolute; inset: 80px 0 0; z-index: 1; pointer-events: none; }
-.orbit-chip { position: absolute; padding: 8px 12px; border: 1px solid var(--line); border-radius: 100px; background: rgba(241,238,230,.92); font: 400 8px var(--mono); text-transform: uppercase; transition: transform .18s linear; }
-.chip-one { left: 52%; top: 14%; transform: rotate(-8deg); }
-.chip-two { right: 4%; top: 38%; transform: rotate(7deg); }
-.chip-three { left: 3%; top: 47%; transform: rotate(-4deg); }
+.orbit-chip { position: absolute; transform: translate3d(var(--px, 0px), var(--py, 0px), 0) rotate(var(--rot, 0deg)); will-change: transform; padding: 8px 12px; border: 1px solid var(--line); border-radius: 100px; background: rgba(241,238,230,.92); font: 400 8px var(--mono); text-transform: uppercase; transition: transform .18s linear; }
+.chip-one { left: 52%; top: 14%; --rot: -8deg; }
+.chip-two { right: 4%; top: 38%; --rot: 7deg; }
+.chip-three { left: 3%; top: 47%; --rot: -4deg; }
 .status-dot { width: 8px; height: 8px; display: inline-block; border-radius: 50%; background: #4abe58; box-shadow: 0 0 0 5px rgba(74,190,88,.14); }
 .hero-title { margin: auto 0 20px; font-size: clamp(60px, 11.2vw, 170px); font-weight: 500; line-height: .82; letter-spacing: -.085em; }
 .title-line { display: block; width: fit-content; }
@@ -492,3 +494,7 @@ footer { padding: 70px var(--pad) 74px; background: var(--ink); color: var(--pap
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Performance: la grana a schermo intero costa cara sulle GPU mobili; le sezioni sotto la piega si renderizzano solo quando servono. */
+@media (pointer: coarse) { .noise { display: none; } }
+.work, .studio, .method, .quote, .contact { content-visibility: auto; contain-intrinsic-size: auto 900px; }

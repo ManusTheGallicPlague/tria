@@ -11,7 +11,7 @@ const progress = document.querySelector("[data-scroll-progress]");
 const loader = document.querySelector("[data-loader]");
 const loaderCount = document.querySelector("[data-loader-count]");
 const loaderBar = document.querySelector("[data-loader-bar]");
-const loaderDuration = reduceMotion ? 120 : 650;
+const loaderDuration = reduceMotion ? 120 : 480;
 const loaderStart = performance.now();
 
 const runLoader = (now) => {
@@ -106,13 +106,9 @@ document.querySelectorAll(".circle-link svg, .marquee-track").forEach((element) 
 
 // Ora locale: un piccolo segnale che lo studio è vivo, non una brochure congelata.
 const timeElement = document.querySelector("[data-live-time]");
+const timeFormat = new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", hour: "2-digit", minute: "2-digit", second: "2-digit" });
 const updateTime = () => {
-  timeElement.textContent = new Intl.DateTimeFormat("it-IT", {
-    timeZone: "Europe/Rome",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  }).format(new Date());
+  if (!document.hidden) timeElement.textContent = timeFormat.format(new Date());
 };
 updateTime();
 setInterval(updateTime, 1000);
@@ -168,47 +164,80 @@ if (finePointer && !reduceMotion) {
 
 // I micro-movimenti seguono il puntatore senza interferire con touch e tastiera.
 if (finePointer && !reduceMotion) {
-  document.querySelectorAll("[data-magnetic]").forEach((element) => {
+  // Misura una volta all'ingresso e scrive solo in requestAnimationFrame: niente layout forzato a ogni movimento.
+  const trackPointer = (element, onMove, onLeave) => {
+    let rect = null;
+    let rectScroll = 0;
+    let frame = 0;
+    let lastEvent = null;
+    element.addEventListener("pointerenter", () => {
+      rect = element.getBoundingClientRect();
+      rectScroll = window.scrollY;
+    });
     element.addEventListener("pointermove", (event) => {
-      const rect = element.getBoundingClientRect();
+      lastEvent = event;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (!rect) return;
+        if (window.scrollY !== rectScroll) {
+          rect = element.getBoundingClientRect();
+          rectScroll = window.scrollY;
+        }
+        onMove(lastEvent, rect);
+      });
+    }, { passive: true });
+    element.addEventListener("pointerleave", () => {
+      rect = null;
+      onLeave();
+    });
+  };
+
+  document.querySelectorAll("[data-magnetic]").forEach((element) => {
+    trackPointer(element, (event, rect) => {
       const x = (event.clientX - rect.left - rect.width / 2) * 0.16;
       const y = (event.clientY - rect.top - rect.height / 2) * 0.16;
       element.style.transform = `translate3d(${x}px,${y}px,0)`;
-    });
-    element.addEventListener("pointerleave", () => { element.style.transform = ""; });
+    }, () => { element.style.transform = ""; });
   });
 
   document.querySelectorAll("[data-tilt]").forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
-      const rect = card.getBoundingClientRect();
+    trackPointer(card, (event, rect) => {
       const rotateY = ((event.clientX - rect.left) / rect.width - 0.5) * 5;
       const rotateX = ((event.clientY - rect.top) / rect.height - 0.5) * -5;
       card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+    }, () => { card.style.transform = ""; });
   });
 
+  // Parallasse dei chip: solo transform (compositor), mai margini (layout).
   const hero = document.querySelector("[data-parallax-scene]").parentElement;
   const floatingChips = [...document.querySelectorAll("[data-depth]")];
-  hero.addEventListener("pointermove", (event) => {
-    const x = event.clientX / window.innerWidth - 0.5;
-    const y = event.clientY / window.innerHeight - 0.5;
+  const viewport = { w: window.innerWidth, h: window.innerHeight };
+  window.addEventListener("resize", () => { viewport.w = window.innerWidth; viewport.h = window.innerHeight; }, { passive: true });
+  let heroX = 0;
+  let heroY = 0;
+  let heroFrame = 0;
+  const drawChips = () => {
+    heroFrame = 0;
     floatingChips.forEach((chip) => {
       const depth = Number(chip.dataset.depth);
-      chip.style.marginLeft = `${x * 35 * depth}px`;
-      chip.style.marginTop = `${y * 26 * depth}px`;
+      chip.style.setProperty("--px", `${heroX * 35 * depth}px`);
+      chip.style.setProperty("--py", `${heroY * 26 * depth}px`);
     });
-  });
+  };
+  hero.addEventListener("pointermove", (event) => {
+    heroX = event.clientX / viewport.w - 0.5;
+    heroY = event.clientY / viewport.h - 0.5;
+    if (!heroFrame) heroFrame = requestAnimationFrame(drawChips);
+  }, { passive: true });
 
   document.querySelectorAll("[data-project]").forEach((project) => {
     const visual = project.querySelector(".project-visual");
-    project.addEventListener("pointermove", (event) => {
-      const rect = project.getBoundingClientRect();
+    trackPointer(project, (event, rect) => {
       const x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
       const y = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
       visual.style.transform = `translate3d(${x}px,${y}px,0) scale(1.025)`;
-    });
-    project.addEventListener("pointerleave", () => { visual.style.transform = ""; });
+    }, () => { visual.style.transform = ""; });
   });
 }
 

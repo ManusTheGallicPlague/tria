@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+  <title id="title">TRIA — cover Highlight Studio</title>
+  <desc id="desc">Cover Story Paper per presentare lo studio TRIA, con tre persone rappresentate da un'icona monolineare.</desc>
+  <defs>
+    <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M90 0H0V90" fill="none" stroke="#171716" stroke-width="2" opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="#f1eee6"/>
+  <rect width="1080" height="1920" fill="url(#grid)"/>
+  <g fill="#171716">
+    <path transform="translate(80 92) scale(1.7)" fill-rule="evenodd" clip-rule="evenodd" d="M21 2 40 36H2L21 2ZM21 18.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"/>
+    <text x="164" y="147" font-family="Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-3.64">TRIA</text>
+    <text x="80" y="1725" font-family="Manrope, Arial, sans-serif" font-size="132" font-weight="500" letter-spacing="-9">Studio.</text>
+    <text x="82" y="1784" font-family="DM Mono, Courier New, monospace" font-size="24" font-weight="400" letter-spacing="3">03× MINDS / 01 SYSTEM</text>
+  </g>
+  <text x="1000" y="135" fill="#171716" text-anchor="end" font-family="DM Mono, Courier New, monospace" font-size="24" letter-spacing="3">02 / 05</text>
+  <ellipse cx="540" cy="960" rx="340" ry="270" fill="none" stroke="#2449d8" stroke-width="10" transform="rotate(-17 540 960)"/>
+  <circle cx="244" cy="829" r="18" fill="#ff4b24"/>
+  <g fill="none" stroke="#171716" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="540" cy="850" r="54"/>
+    <circle cx="408" cy="910" r="46"/>
+    <circle cx="672" cy="910" r="46"/>
+    <path d="M442 1081c8-79 43-123 98-123s90 44 98 123"/>
+    <path d="M326 1081c7-63 34-99 82-99 30 0 53 13 68 39M754 1081c-7-63-34-99-82-99-30 0-53 13-68 39"/>
+  </g>
+  <rect x="80" y="1815" width="920" height="2" fill="#171716" opacity=".35"/>
+</svg>

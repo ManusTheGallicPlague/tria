@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">TRIA — avatar Instagram</title>
+  <desc id="desc">Avatar quadrato Ink, ottimizzato per il ritaglio circolare, con orbita Cobalt, accento Orange e simbolo TRIA Paper.</desc>
+  <rect width="1080" height="1080" fill="#171716"/>
+  <ellipse cx="540" cy="540" rx="352" ry="273" fill="none" stroke="#2449d8" stroke-width="16" transform="rotate(-18 540 540)"/>
+  <circle cx="845" cy="393" r="25" fill="#ff4b24"/>
+  <path transform="translate(288 312) scale(12)" fill="#f1eee6" fill-rule="evenodd" clip-rule="evenodd" d="M21 2 40 36H2L21 2ZM21 18.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"/>
+</svg>

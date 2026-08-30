@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+  <title id="title">TRIA — cover Highlight Metodo</title>
+  <desc id="desc">Cover Story Cobalt dedicata al metodo TRIA, rappresentato da quattro tappe connesse.</desc>
+  <defs>
+    <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M90 0H0V90" fill="none" stroke="#f1eee6" stroke-width="2" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="#2449d8"/>
+  <rect width="1080" height="1920" fill="url(#grid)"/>
+  <g fill="#f1eee6">
+    <path transform="translate(80 92) scale(1.7)" fill-rule="evenodd" clip-rule="evenodd" d="M21 2 40 36H2L21 2ZM21 18.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"/>
+    <text x="164" y="147" font-family="Manrope, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-3.64">TRIA</text>
+    <text x="80" y="1725" font-family="Manrope, Arial, sans-serif" font-size="132" font-weight="500" letter-spacing="-9">Metodo.</text>
+    <text x="82" y="1784" font-family="DM Mono, Courier New, monospace" font-size="24" font-weight="400" letter-spacing="3">CAPIRE / FORMA / BUILD / GROW</text>
+  </g>
+  <text x="1000" y="135" fill="#f1eee6" text-anchor="end" font-family="DM Mono, Courier New, monospace" font-size="24" letter-spacing="3">03 / 05</text>
+  <ellipse cx="540" cy="960" rx="340" ry="270" fill="none" stroke="#f1eee6" stroke-width="10" opacity=".34" transform="rotate(-17 540 960)"/>
+  <circle cx="244" cy="829" r="18" fill="#d7ef3f"/>
+  <g fill="none" stroke="#f1eee6" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M349 1057c67-8 75-154 142-154 67 0 75 154 142 154 45 0 69-53 88-105l64-64"/>
+    <path d="M745 888h40v40"/>
+  </g>
+  <g fill="#2449d8" stroke="#d7ef3f" stroke-width="20">
+    <circle cx="349" cy="1057" r="29"/>
+    <circle cx="491" cy="903" r="29"/>
+    <circle cx="633" cy="1057" r="29"/>
+    <circle cx="721" cy="952" r="29"/>
+  </g>
+  <rect x="80" y="1815" width="920" height="2" fill="#f1eee6" opacity=".4"/>
+</svg>
