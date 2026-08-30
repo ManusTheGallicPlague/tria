@@ -51,7 +51,8 @@
     <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
     <div class="cursor-ring" data-cursor-ring aria-hidden="true"><span></span></div>
     <div class="secret-toast" data-secret-toast role="status" aria-live="polite">
-      <span>✦</span> Hai trovato il lato B di TRIA.
+      <span class="toast-icon" aria-hidden="true">✦</span>
+      <span data-toast-message>Hai trovato il lato B di TRIA.</span>
     </div>
 
     <div class="noise" aria-hidden="true"></div>
@@ -345,11 +346,26 @@
       </section>
     </main>
 
-    <footer>
+    <footer id="footer">
       <div class="footer-brand">TRIA<sup>®</sup></div>
       <div class="footer-row">
         <p>Tre teste. Un ottimo prodotto.</p>
-        <div><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">GitHub</a></div>
+        <div class="footer-socials" aria-label="Canali social TRIA">
+          <a
+            class="footer-social-live"
+            href="https://www.instagram.com/triadigitalproductstudio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TRIA su Instagram, si apre in una nuova scheda"
+            data-cursor="APRI"
+          >Instagram <span aria-hidden="true">↗</span></a>
+          <button type="button" data-coming-soon="LinkedIn" aria-label="LinkedIn, work in progress" data-cursor="PRESTO">
+            LinkedIn <small>WIP</small>
+          </button>
+          <button type="button" data-coming-soon="GitHub" aria-label="GitHub, work in progress" data-cursor="PRESTO">
+            GitHub <small>WIP</small>
+          </button>
+        </div>
         <p>© <span data-year>2026</span> · Fatto con cura in Italia · Niente cookie, niente tracker</p>
       </div>
     </footer>

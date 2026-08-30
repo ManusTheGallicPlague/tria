@@ -237,9 +237,19 @@ document.querySelectorAll("a, button").forEach((element) => {
 
 // Easter egg: premi T (o clicca tre volte il marchio) per sbloccare il lato B.
 const secretToast = document.querySelector("[data-secret-toast]");
+const toastMessage = secretToast.querySelector("[data-toast-message]");
 const secretTrigger = document.querySelector("[data-secret-trigger]");
 let logoClicks = 0;
 let logoClickTimer;
+let toastTimer;
+
+const showToast = (message) => {
+  clearTimeout(toastTimer);
+  toastMessage.textContent = message;
+  secretToast.classList.remove("show");
+  requestAnimationFrame(() => secretToast.classList.add("show"));
+  toastTimer = setTimeout(() => secretToast.classList.remove("show"), 3000);
+};
 
 const launchConfetti = () => {
   const colors = ["#d7ef3f", "#52e4ff", "#ff4b24", "#ec43a8", "#f1eee6"];
@@ -258,12 +268,17 @@ const launchConfetti = () => {
 
 const triggerSurprise = () => {
   document.body.classList.toggle("secret-mode");
-  secretToast.classList.add("show");
+  showToast("Hai trovato il lato B di TRIA.");
   scrambleTo(document.body.classList.contains("secret-mode") ? "che spacca." : "che conta.");
   launchConfetti();
   playTone(880, 0.16, 0.04);
-  setTimeout(() => secretToast.classList.remove("show"), 2600);
 };
+
+document.querySelectorAll("[data-coming-soon]").forEach((link) => {
+  link.addEventListener("click", () => {
+    showToast(`${link.dataset.comingSoon} / Work in progress — stiamo preparando il profilo.`);
+  });
+});
 
 secretTrigger.addEventListener("click", () => {
   logoClicks += 1;
