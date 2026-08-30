@@ -11,15 +11,17 @@ const progress = document.querySelector("[data-scroll-progress]");
 const loader = document.querySelector("[data-loader]");
 const loaderCount = document.querySelector("[data-loader-count]");
 const loaderBar = document.querySelector("[data-loader-bar]");
-const loaderDuration = reduceMotion ? 120 : 480;
+const loaderDuration = reduceMotion ? 120 : 360;
 const loaderStart = performance.now();
+const skipIntro = document.documentElement.classList.contains("skip-intro");
+try { sessionStorage.setItem("tria-intro", "1"); } catch (error) {}
 
 const runLoader = (now) => {
   const elapsed = Math.min((now - loaderStart) / loaderDuration, 1);
   const eased = 1 - Math.pow(1 - elapsed, 3);
   const value = Math.round(eased * 100);
   loaderCount.textContent = String(value).padStart(3, "0");
-  loaderBar.style.width = `${value}%`;
+  loaderBar.style.transform = `scaleX(${value / 100})`;
 
   if (elapsed < 1) {
     requestAnimationFrame(runLoader);
@@ -28,7 +30,12 @@ const runLoader = (now) => {
     document.body.classList.remove("is-loading");
   }
 };
-requestAnimationFrame(runLoader);
+if (skipIntro) {
+  loader.classList.add("done");
+  document.body.classList.remove("is-loading");
+} else {
+  requestAnimationFrame(runLoader);
+}
 
 let scrollableRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
 let headerIsScrolled = null;
