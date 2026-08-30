@@ -30,14 +30,38 @@ const runLoader = (now) => {
 };
 requestAnimationFrame(runLoader);
 
+let scrollableRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+let headerIsScrolled = null;
+
+const measurePage = () => {
+  scrollableRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+};
+
 const setPageState = () => {
-  header.classList.toggle("scrolled", window.scrollY > 24);
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
+  const nextHeaderState = window.scrollY > 24;
+  if (nextHeaderState !== headerIsScrolled) {
+    headerIsScrolled = nextHeaderState;
+    header.classList.toggle("scrolled", nextHeaderState);
+  }
+  const amount = scrollableRange > 0 ? window.scrollY / scrollableRange : 0;
+  progress.style.transform = `scaleX(${Math.min(Math.max(amount, 0), 1)})`;
 };
 
 setPageState();
-window.addEventListener("scroll", setPageState, { passive: true });
+let pageStateFrame = 0;
+window.addEventListener("scroll", () => {
+  if (pageStateFrame) return;
+  pageStateFrame = requestAnimationFrame(() => {
+    pageStateFrame = 0;
+    setPageState();
+  });
+}, { passive: true });
+window.addEventListener("resize", () => {
+  measurePage();
+  setPageState();
+}, { passive: true });
+window.addEventListener("load", measurePage, { once: true });
+document.fonts?.ready.then(measurePage);
 
 const closeMenu = () => {
   menuButton.classList.remove("open");
@@ -73,6 +97,13 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
+// Le animazioni cicliche lavorano solo quando sono davvero visibili.
+const loopObserver = new IntersectionObserver(
+  (entries) => entries.forEach((entry) => entry.target.classList.toggle("is-running", entry.isIntersecting)),
+  { rootMargin: "120px 0px" },
+);
+document.querySelectorAll(".circle-link svg, .marquee-track").forEach((element) => loopObserver.observe(element));
+
 // Ora locale: un piccolo segnale che lo studio è vivo, non una brochure congelata.
 const timeElement = document.querySelector("[data-live-time]");
 const updateTime = () => {
@@ -96,20 +127,30 @@ if (finePointer && !reduceMotion) {
   let pointerY = window.innerHeight / 2;
   let ringX = pointerX;
   let ringY = pointerY;
+  let cursorFrame = 0;
 
   window.addEventListener("pointermove", (event) => {
     pointerX = event.clientX;
     pointerY = event.clientY;
     cursorDot.style.transform = `translate3d(${pointerX}px,${pointerY}px,0) translate(-50%,-50%)`;
+    if (!cursorFrame) cursorFrame = requestAnimationFrame(drawCursor);
   });
 
   const drawCursor = () => {
-    ringX += (pointerX - ringX) * 0.16;
-    ringY += (pointerY - ringY) * 0.16;
+    const deltaX = pointerX - ringX;
+    const deltaY = pointerY - ringY;
+    ringX += deltaX * 0.16;
+    ringY += deltaY * 0.16;
     cursorRing.style.transform = `translate3d(${ringX}px,${ringY}px,0) translate(-50%,-50%)`;
-    requestAnimationFrame(drawCursor);
+    if (Math.abs(deltaX) + Math.abs(deltaY) > 0.2) {
+      cursorFrame = requestAnimationFrame(drawCursor);
+    } else {
+      ringX = pointerX;
+      ringY = pointerY;
+      cursorRing.style.transform = `translate3d(${ringX}px,${ringY}px,0) translate(-50%,-50%)`;
+      cursorFrame = 0;
+    }
   };
-  drawCursor();
 
   document.querySelectorAll("[data-cursor]").forEach((element) => {
     element.addEventListener("pointerenter", () => {
