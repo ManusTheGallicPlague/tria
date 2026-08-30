@@ -504,3 +504,6 @@ footer { padding: 70px var(--pad) 74px; background: var(--ink); color: var(--pap
 
 /* Chi torna nella stessa sessione non rivede l'intro. */
 .skip-intro .loader { display: none; }
+
+/* Durante lo scramble la riga non va a capo né cambia larghezza (overflow gestito da .hero). */
+.title-accent.is-scrambling { white-space: nowrap; }

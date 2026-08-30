@@ -255,27 +255,50 @@ const scrambleChars = "#%&*+/<=>?@{}";
 let scrambleIndex = 0;
 let scrambleTimer;
 
+const heroTitle = scrambleElement.closest(".hero-title");
+const syncScrambleLabel = (message) => {
+  if (heroTitle) heroTitle.setAttribute("aria-label", `Costruiamo digitale ${message}`);
+};
+
+const endScramble = (message) => {
+  clearInterval(scrambleTimer);
+  scrambleElement.textContent = message;
+  scrambleElement.style.width = "";
+  scrambleElement.classList.remove("is-scrambling");
+  syncScrambleLabel(message);
+};
+
 const scrambleTo = (message) => {
   clearInterval(scrambleTimer);
+  if (reduceMotion) { endScramble(message); return; }
+
+  // Larghezza bloccata su quella del messaggio finale: i caratteri casuali sono più larghi
+  // e senza questo ogni tick ri-layouta l'intera colonna dell'hero.
+  scrambleElement.style.width = "";
+  scrambleElement.classList.add("is-scrambling");
+  scrambleElement.textContent = message;
+  scrambleElement.style.width = `${Math.ceil(scrambleElement.getBoundingClientRect().width)}px`;
+
   let frame = 0;
   const maxFrames = message.length * 3;
-  scrambleTimer = setInterval(() => {
+  const render = () => {
     scrambleElement.textContent = [...message].map((char, index) => {
       if (char === " " || index * 3 < frame) return char;
       return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
     }).join("");
     frame += 1;
-    if (frame > maxFrames) {
-      clearInterval(scrambleTimer);
-      scrambleElement.textContent = message;
-    }
-  }, 30);
+    if (frame > maxFrames) endScramble(message);
+  };
+  render(); // primo frame sincrono: il messaggio finale non viene mai dipinto in anticipo
+  scrambleTimer = setInterval(render, 30);
 };
 
-scrambleElement.addEventListener("pointerenter", () => {
-  scrambleIndex = (scrambleIndex + 1) % scrambleMessages.length;
-  scrambleTo(scrambleMessages[scrambleIndex]);
-});
+if (finePointer && !reduceMotion) {
+  scrambleElement.addEventListener("pointerenter", () => {
+    scrambleIndex = (scrambleIndex + 1) % scrambleMessages.length;
+    scrambleTo(scrambleMessages[scrambleIndex]);
+  });
+}
 
 // Sound design sintetico, attivabile esplicitamente: nessun file o autoplay invasivo.
 const soundToggle = document.querySelector("[data-sound-toggle]");
