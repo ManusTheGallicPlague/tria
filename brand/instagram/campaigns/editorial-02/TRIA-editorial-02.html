@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TRIA — Editorial 02 / 3 post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink:#171716; --paper:#f1eee6; --orange:#ff4b24;
+        --cobalt:#2449d8; --lime:#d7ef3f;
+        --sans:Manrope,Arial,sans-serif; --mono:'DM Mono','Courier New',monospace;
+      }
+      * { box-sizing:border-box; }
+      html,body { margin:0; min-height:100%; font-family:var(--sans); color:var(--ink); }
+      body { padding:52px; background:var(--ink); }
+      .kit { max-width:1700px; margin:auto; }
+      .kit-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:38px; color:var(--paper); }
+      .kit-head span { font:500 12px var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--lime); }
+      .kit-head h1 { margin:10px 0 0; font-size:68px; line-height:.9; letter-spacing:-.065em; font-weight:500; }
+      .kit-head h1 em { display:block; color:var(--orange); font-weight:500; }
+      .kit-head p { max-width:430px; margin:0; text-align:right; font:400 11px/1.7 var(--mono); text-transform:uppercase; color:#cbc7bc; }
+      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+      .asset { min-width:0; }
+      .preview { width:100%; aspect-ratio:4/5; overflow:hidden; background:#242421; display:grid; place-items:start center; }
+      .preview .feed { zoom:.285; }
+      .asset-label { display:flex; justify-content:space-between; margin-top:12px; color:#d4d0c5; font:400 10px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+
+      .feed { position:relative; width:1440px; height:1800px; overflow:hidden; isolation:isolate; }
+      .feed::before { content:""; position:absolute; inset:0; z-index:20; pointer-events:none; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+      .pad { position:absolute; inset:0; z-index:2; padding:92px; display:flex; flex-direction:column; }
+      .topline,.bottomline { display:flex; align-items:center; justify-content:space-between; font:500 22px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+      .bottomline { margin-top:auto; padding-top:25px; border-top:2px solid currentColor; }
+      .brand { display:flex; align-items:center; gap:18px; font-size:34px; font-weight:700; letter-spacing:-.07em; }
+      .brand svg { width:46px; height:46px; }
+      .chip { display:inline-flex; width:max-content; align-items:center; gap:13px; padding:15px 22px; border:2px solid currentColor; border-radius:999px; font:500 20px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+      .display { margin:0; font-size:146px; line-height:.85; letter-spacing:-.078em; font-weight:500; text-transform:uppercase; }
+      .display em { display:block; font-weight:500; }
+
+      /* 04 — Principio */
+      .principle { background:var(--cobalt); color:var(--paper); }
+      .principle .diagram { position:relative; height:470px; margin:150px 0 105px; }
+      .principle .path { position:absolute; top:220px; left:40px; right:40px; height:3px; background:rgba(241,238,230,.5); }
+      .principle .path::after { content:""; position:absolute; right:-2px; top:-10px; width:18px; height:18px; border-top:3px solid var(--paper); border-right:3px solid var(--paper); transform:rotate(45deg); }
+      .principle .node { position:absolute; top:158px; width:132px; height:132px; border:3px solid var(--paper); border-radius:50%; display:grid; place-items:center; background:var(--cobalt); font:500 26px var(--mono); }
+      .principle .node::after { position:absolute; top:155px; white-space:nowrap; font:500 18px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+      .principle .node-one { left:0; }
+      .principle .node-one::after { content:"Problema"; }
+      .principle .node-two { left:50%; transform:translateX(-50%); background:var(--lime); color:var(--ink); border-color:var(--lime); }
+      .principle .node-two::after { content:"Scelta"; color:var(--paper); }
+      .principle .node-three { right:0; background:var(--orange); border-color:var(--orange); }
+      .principle .node-three::after { content:"Prodotto"; color:var(--paper); }
+      .principle .diagram-note { position:absolute; top:0; right:0; font:400 20px/1.55 var(--mono); text-transform:uppercase; text-align:right; max-width:330px; opacity:.75; }
+      .principle .display { font-size:154px; }
+      .principle .display em { color:var(--lime); }
+      .principle .intro { max-width:880px; margin:45px 0 70px; font-size:36px; line-height:1.34; letter-spacing:-.035em; }
+
+      /* 05 — Offerta */
+      .offers { background:var(--paper); color:var(--ink); }
+      .offers .title { margin:135px 0 72px; }
+      .offers .title .display { font-size:116px; }
+      .offers .title .display em { color:var(--orange); }
+      .offer-list { display:grid; gap:14px; }
+      .offer { min-height:250px; padding:34px 40px; display:grid; grid-template-columns:150px 1fr 340px; align-items:center; gap:30px; }
+      .offer:nth-child(1) { background:var(--cobalt); color:var(--paper); }
+      .offer:nth-child(2) { background:var(--lime); }
+      .offer:nth-child(3) { background:var(--orange); }
+      .offer-num { font:300 74px/1 var(--mono); letter-spacing:-.08em; }
+      .offer h3 { margin:0; font-size:68px; line-height:.9; letter-spacing:-.06em; text-transform:uppercase; }
+      .offer p { margin:0; font:500 21px/1.45 var(--mono); text-transform:uppercase; }
+      .offer p span { display:block; margin-top:8px; opacity:.65; }
+
+      /* 06 — Domanda */
+      .question { background:var(--ink); color:var(--paper); }
+      .question .question-mark { position:absolute; right:-120px; top:115px; z-index:-1; color:rgba(255,75,36,.95); font:500 870px/.8 var(--sans); letter-spacing:-.18em; }
+      .question .prompt { margin:auto 0 70px; }
+      .question .display { max-width:1210px; margin-top:48px; font-size:135px; }
+      .question .display em { color:var(--lime); }
+      .question .answer-box { margin-bottom:70px; padding:48px; border:3px solid var(--paper); background:rgba(23,23,22,.84); display:grid; grid-template-columns:1fr auto; gap:40px; align-items:end; }
+      .question .answer-box p { max-width:720px; margin:0; font-size:34px; line-height:1.35; letter-spacing:-.035em; }
+      .question .answer-box strong { padding:18px 24px; background:var(--orange); color:var(--ink); font:500 21px var(--mono); text-transform:uppercase; white-space:nowrap; }
+
+      body.export { padding:0; background:transparent; overflow:hidden; }
+      body.export .kit { display:none; }
+      body.export > .feed { zoom:.75; transform-origin:top left; }
+      @media(max-width:1050px) {
+        body { padding:26px; }
+        .gallery { grid-template-columns:1fr; }
+        .kit-head p { display:none; }
+        .kit-head h1 { font-size:46px; }
+        .preview .feed { zoom:calc((100vw - 52px) / 1440); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="kit">
+      <header class="kit-head">
+        <div><span>TRIA / Editorial campaign 02</span><h1>Tre contenuti.<em>Più conversazione.</em></h1></div>
+        <p>Post statici 4:5<br />Principio · Offerta · Domanda<br />@triadigitalproductstudio</p>
+      </header>
+      <section class="gallery">
+        <article class="asset" data-export="editorial-04">
+          <div class="preview"><div class="feed principle"><div class="pad">
+            <div class="topline"><div class="brand"><svg viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5" fill="var(--cobalt)"/></svg><span>TRIA</span></div><span>04 / Principio</span></div>
+            <div class="diagram"><p class="diagram-note">Il codice è uno strumento.<br />La direzione viene prima.</p><div class="path"></div><span class="node node-one">01</span><span class="node node-two">02</span><span class="node node-three">03</span></div>
+            <div><span class="chip">Prima il problema</span><h2 class="display" style="margin-top:42px">Il codice<em>arriva dopo.</em></h2><p class="intro">Prima capiamo cosa deve cambiare. Poi scegliamo cosa costruire.</p></div>
+            <div class="bottomline"><span>Problema → Scelta → Prodotto</span><span>@triadigitalproductstudio</span></div>
+          </div></div></div>
+          <div class="asset-label"><span>04 — Il codice arriva dopo</span><span>1080 × 1350</span></div>
+        </article>
+
+        <article class="asset" data-export="editorial-05">
+          <div class="preview"><div class="feed offers"><div class="pad">
+            <div class="topline"><div class="brand"><svg viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5" fill="var(--paper)"/></svg><span>TRIA</span></div><span>05 / Cosa facciamo</span></div>
+            <div class="title"><span class="chip">Dove possiamo entrare</span><h2 class="display" style="margin-top:40px">Tre verbi.<em>Un obiettivo.</em></h2></div>
+            <div class="offer-list">
+              <article class="offer"><span class="offer-num">01</span><h3>Lanciare.</h3><p>Idea → MVP<span>Il primo prodotto reale.</span></p></article>
+              <article class="offer"><span class="offer-num">02</span><h3>Migliorare.</h3><p>Attrito → Esperienza<span>Quello che esiste, fatto meglio.</span></p></article>
+              <article class="offer"><span class="offer-num">03</span><h3>Automatizzare.</h3><p>Ripetizione → Sistema<span>Più tempo per il lavoro che conta.</span></p></article>
+            </div>
+            <div class="bottomline"><span>Business · Product · Technology</span><span>Parliamone →</span></div>
+          </div></div></div>
+          <div class="asset-label"><span>05 — Tre modi di intervenire</span><span>1080 × 1350</span></div>
+        </article>
+
+        <article class="asset" data-export="editorial-06">
+          <div class="preview"><div class="feed question"><div class="pad">
+            <div class="topline"><div class="brand"><svg viewBox="0 0 42 42"><path d="M21 2 40 36H2L21 2Z" fill="currentColor"/><circle cx="21" cy="25" r="6.5" fill="var(--ink)"/></svg><span>TRIA</span></div><span>06 / Domanda aperta</span></div>
+            <div class="question-mark">?</div>
+            <div class="prompt"><span class="chip">La domanda della settimana</span><h2 class="display">Cosa ti fa<em>perdere tempo</em>ogni giorno?</h2></div>
+            <div class="answer-box"><p>Il prossimo prodotto utile potrebbe iniziare da una risposta semplice.</p><strong>Scrivilo nei commenti ↓</strong></div>
+            <div class="bottomline"><span>Partiamo dal problema</span><span>@triadigitalproductstudio</span></div>
+          </div></div></div>
+          <div class="asset-label"><span>06 — Domanda aperta</span><span>1080 × 1350</span></div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const requested = new URLSearchParams(location.search).get('export');
+      if (requested) {
+        const card = document.querySelector(`[data-export="${requested}"]`);
+        const board = card?.querySelector('.feed');
+        if (board) { document.body.classList.add('export'); document.body.append(board); }
+      }
+    </script>
+  </body>
+</html>
