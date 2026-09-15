@@ -395,7 +395,7 @@ window.addEventListener("keydown", (event) => {
   if (!typing && event.key.toLowerCase() === "t") triggerSurprise();
 });
 
-// Modulo: valida nel browser e prepara una mail già completa.
+// Modulo: prepara una chat WhatsApp; l'utente conferma l'invio nell'app.
 const form = document.querySelector("[data-contact-form]");
 const status = form.querySelector(".form-status");
 const budgetInput = document.querySelector("#budget");
@@ -414,22 +414,21 @@ form.addEventListener("submit", (event) => {
   let valid = true;
 
   requiredFields.forEach((field) => {
-    const fieldValid = field.checkValidity();
+    const fieldValid = field.checkValidity() && field.value.trim().length > 0;
     field.closest(".form-row").classList.toggle("invalid", !fieldValid);
     valid = valid && fieldValid;
   });
 
   if (!valid) {
     status.textContent = "Controlla i campi evidenziati e riprova.";
-    requiredFields.find((field) => !field.checkValidity())?.focus();
+    requiredFields.find((field) => !field.checkValidity() || !field.value.trim())?.focus();
     return;
   }
 
   const data = new FormData(form);
-  const subject = encodeURIComponent(`Nuovo progetto da ${data.get("name")}`);
-  const body = encodeURIComponent(
-    `Ciao TRIA,\n\n${data.get("project")}\n\nBudget indicativo: ${data.get("budget") || "Non specificato"}\nEmail: ${data.get("email")}`,
-  );
-  status.textContent = "Perfetto — stiamo aprendo la tua email.";
-  window.location.href = `mailto:ciao@tria.studio?subject=${subject}&body=${body}`;
+  const messaggio = `Ciao TRIA, sono ${data.get("name").trim()}.\n\n${data.get("project").trim()}\n\nBudget indicativo: ${data.get("budget") || "Da capire"}`;
+  const destinazione = new URL(document.querySelector("[data-whatsapp-link]").href);
+  destinazione.searchParams.set("text", messaggio);
+  status.textContent = "Apriamo WhatsApp con il messaggio pronto. Potrai controllarlo e inviarlo tu.";
+  window.location.href = destinazione.href;
 });
