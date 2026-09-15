@@ -335,7 +335,6 @@ h2 em { color: var(--orange); font-weight: 500; }
 .contact h2 em { color: var(--paper); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; margin-top: 100px; }
 .contact-lead p { max-width: 500px; margin: 0 0 45px; font-size: clamp(20px, 2vw, 29px); line-height: 1.45; letter-spacing: -.035em; }
-.contact-phone { display: block; margin-bottom: 22px; font: 500 clamp(19px, 2.3vw, 32px) var(--mono); letter-spacing: -.04em; }
 .whatsapp-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 52px; max-width: 100%; padding: 17px 20px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 500 11px var(--mono); text-transform: uppercase; transition: background-color .15s, color .15s; }
 .whatsapp-link:hover { background: var(--paper); color: var(--ink); }
 .whatsapp-link:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 5px; }
