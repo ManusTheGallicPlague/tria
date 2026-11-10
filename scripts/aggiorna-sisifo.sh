@@ -4,9 +4,11 @@
 set -eu
 cd "$(dirname "$0")/.."
 SRC="${1:-$HOME/sisifo/dist-demo/index.html}"
-OG="${2:-$HOME/sisifo/reports/visual/desktop-iniziale.jpg}"
+SHOTS="${2:-$HOME/sisifo/reports/visual}"
 mkdir -p sisifo assets
-cp "$OG" assets/sisifo-og.jpg
+# Screenshot del gioco usati dalla scheda nel sito e dall'anteprima dei link.
+cp "$SHOTS/desktop-fulmine-vetrina.jpg" assets/sisifo-desktop.jpg
+cp "$SHOTS/mobile-gioco.jpg" assets/sisifo-phone.jpg
 python3 -I - "$SRC" sisifo/index.html <<'EOF'
 import sys
 src, dst = sys.argv[1], sys.argv[2]
@@ -22,7 +24,7 @@ meta = title + """
   <meta property="og:title" content="L’Ascesa di Sisifo — demo" />
   <meta property="og:description" content="High-Low di carte con scalata. Demo a crediti simulati, nessun denaro reale." />
   <meta property="og:url" content="https://tria.playgroundai.space/sisifo/" />
-  <meta property="og:image" content="https://tria.playgroundai.space/assets/sisifo-og.jpg" />
+  <meta property="og:image" content="https://tria.playgroundai.space/assets/sisifo-desktop.jpg" />
   <meta name="twitter:card" content="summary_large_image" />"""
 open(dst, "w", encoding="utf-8").write(html.replace(title, meta))
 EOF
