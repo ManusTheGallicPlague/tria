@@ -279,6 +279,29 @@ h2 em { color: var(--orange); font-weight: 500; }
 .playground-badge b { font-size: 30px; line-height: .9; letter-spacing: -.06em; }
 .playground-badge span { margin-top: 5px; font: 500 8px var(--mono); text-transform: uppercase; }
 
+.project-sisifo .project-info h3 { font-size: clamp(38px, 4vw, 62px); overflow-wrap: anywhere; }
+.project-sisifo .sisifo-visual { display: grid; place-items: center; background: linear-gradient(180deg, #0a1026 0%, #1a2142 58%, #2a2735 100%); color: #f7f4ec; isolation: isolate; }
+.project-sisifo .sisifo-visual::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: radial-gradient(rgba(255,255,255,.5) .7px, transparent 1.2px), radial-gradient(rgba(255,255,255,.28) .6px, transparent 1.1px); background-size: 140px 120px, 90px 70px; background-position: 0 0, 40px 30px; mask-image: linear-gradient(to bottom, black 20%, transparent 70%); }
+.sisifo-label { position: absolute; top: 32px; left: 32px; z-index: 1; padding: 10px 14px; border: 1px solid rgba(232,194,122,.55); border-radius: 100px; color: #f3dfae; font: 400 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.sisifo-sun { position: absolute; top: 11%; left: 11%; z-index: -1; width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 42% 40%, #fff0bd, #e8a93a 62%, #c9862a 100%); box-shadow: 0 0 70px rgba(232,169,58,.45); }
+.sisifo-moon { position: absolute; top: 15%; right: 13%; z-index: -1; width: 68px; height: 68px; border-radius: 50%; background: #d4d8e8; box-shadow: inset -17px -7px 0 0 #1a2142, 0 0 40px rgba(212,216,232,.3); }
+.sisifo-mountain { position: absolute; left: 0; right: 0; bottom: 0; z-index: -1; width: 100%; height: 56%; }
+.sisifo-table { display: flex; flex-direction: column; align-items: center; transform: translateY(-4%); }
+.sisifo-cards { display: flex; gap: 14px; transform: rotate(-3deg); transition: transform .8s cubic-bezier(.22,1,.36,1); }
+.project:hover .sisifo-cards { transform: rotate(0deg) translateY(-8px); }
+.sisifo-card { width: clamp(78px, 10vw, 112px); aspect-ratio: 5 / 7; display: flex; flex-direction: column; justify-content: space-between; padding: 11px 13px; border-radius: 10px; background: #f7f4ec; color: var(--ink); font: 700 clamp(28px, 3.2vw, 40px)/1 var(--sans); letter-spacing: -.05em; box-shadow: 0 25px 60px rgba(0,0,0,.5); transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.sisifo-card i { align-self: flex-end; font-style: normal; font-size: .8em; }
+.sisifo-card-red { color: #b8322a; }
+.sisifo-card-back { align-items: center; justify-content: center; border: 4px solid #e8c27a; background: repeating-linear-gradient(45deg, #8c6a2e 0 6px, #a9843d 6px 12px); color: #f3dfae; }
+.sisifo-card-back span { font-weight: 500; }
+.project:hover .sisifo-card:first-child { transform: translateY(6px) rotate(-4deg); }
+.project:hover .sisifo-card:last-child { transform: translateY(-6px) rotate(4deg); }
+.sisifo-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; font: 500 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.sisifo-choices span { padding: 9px 14px; border: 1px solid rgba(232,194,122,.55); border-radius: 100px; background: rgba(10,16,38,.55); color: #f3dfae; }
+.sisifo-badge { position: absolute; right: 3%; bottom: 5%; display: flex; flex-direction: column; padding: 14px 20px; border-radius: 7px; background: #e8c27a; color: var(--ink); transform: rotate(5deg); box-shadow: 0 12px 25px rgba(0,0,0,.35); }
+.sisifo-badge b { font-size: 30px; line-height: .9; letter-spacing: -.06em; }
+.sisifo-badge span { margin-top: 5px; font: 500 8px var(--mono); text-transform: uppercase; }
+
 .studio-intro { display: grid; grid-template-columns: 2fr .8fr; gap: 7vw; padding: 74px 0 100px; }
 .studio-intro p { margin: 12px 0 0; font-size: clamp(17px, 1.6vw, 24px); line-height: 1.5; letter-spacing: -.03em; }
 .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
@@ -467,6 +490,11 @@ footer { padding: 70px var(--pad) 74px; background: var(--ink); color: var(--pap
   .playground-orbit-one { width: 420px; height: 420px; }
   .playground-orbit-two { width: 530px; height: 250px; }
   .playground-badge { right: 1%; bottom: 3%; }
+  .project-sisifo .project-info h3 { font-size: 45px; }
+  .sisifo-sun { width: 80px; height: 80px; }
+  .sisifo-moon { width: 50px; height: 50px; box-shadow: inset -13px -5px 0 0 #1a2142, 0 0 30px rgba(212,216,232,.3); }
+  .sisifo-label { top: 20px; left: 20px; }
+  .sisifo-badge { right: 1%; bottom: 3%; }
   .studio-intro { padding-top: 50px; padding-bottom: 65px; }
   .studio-intro p { font-size: 17px; }
   .team-grid { grid-template-columns: 1fr; gap: 35px; }
